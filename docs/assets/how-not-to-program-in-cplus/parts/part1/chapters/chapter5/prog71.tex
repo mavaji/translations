@@ -1,0 +1,62 @@
+\section[ناهمگام]{ \protect\LTRfootnote{\lr{Unsynchronized}} (راهنمایی \ref{hint:224}، جواب \ref{answer:28})}
+\paragraph{}\label{prog:71}
+قرار است یک ماشین‌حسابِ چهارکاره بسازیم. کاربر باید یک عملگر و یک عدد وارد نماید و ماشین‌حساب شروع به کار می‌کند. مثلاً:
+\LTR\noindent
+\lr{\texttt{Enter operator and value: +10}}\\
+\lr{\texttt{Total: 10}}
+\RTL
+ولی کارها آن طور که انتظار می‌رود پیش نمی‌رود.
+
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+         /************************************************
+         * calc -- Simple 4 function calculator. *
+         * *
+         * Usage: *
+         * $ calc *
+         * Enter operator and value: + 5 *
+         * *
+         * At the end of each operation the acculated *
+         * results are printed. *
+         ************************************************/
+         #include <stdio.h>
+         #include <stdlib.h>
+         int main() {
+         	char oper; /* Operator for our calculator */
+         	int result;/* Current result */
+         	int value; /* Value for the operation */
+
+         	result = 0;
+         	while (1)
+         	{
+         		printf("Enter operator and value:");
+         		scanf("%c %d", &oper, &value);
+
+         		switch (oper) {
+         			case '+':
+         				result += value;
+         				break;
+         			case '-':
+         				result -= value;
+         				break;
+         			case '*':
+         				result *= value;
+         				break;
+         			case '/':
+         				if (value == 0)
+         					printf("Divide by 0 error\n");
+         				else
+         					result /= value;
+        				 break;
+         			case 'q':
+         				exit (0);
+         			default:
+         				printf("Bad operator entered\n"); break;
+         		}
+         		printf("Total: %d\n", result);
+         	}
+         }
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}

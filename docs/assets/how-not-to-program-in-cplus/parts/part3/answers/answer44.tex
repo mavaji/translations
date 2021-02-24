@@ -1,0 +1,26 @@
+\section{}
+\paragraph{}\label{answer:44}
+کاماها می‌توانند برای جدا کردن عبارات \lr{\texttt{C++}} به کار روند. این گونه از آنها استفاده می‌شود:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        if (x)
+            std::cout << "X set. Clearing\n", x = 0;
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+(لطفاً این طوری برنامه ننویسید!)
+
+عبارت \lr{\texttt{one\_million = 1,000,000;}} برابر است با:
+\LTR\noindent
+\lr{\texttt{one\_million = 1,\\
+000,\\
+000;}}
+\RTL
+یا
+\LTR\noindent
+\lr{\texttt{one\_million = 1;\\
+000;\\
+000;}}
+\RTL
+از اینجا می‌توانیم بفهمیم که چرا خروجی برابر 1 است.

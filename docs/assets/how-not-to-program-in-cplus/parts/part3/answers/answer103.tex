@@ -1,0 +1,32 @@
+\section{}
+\paragraph{}\label{answer:103}
+مسأله این جاست که در برخی سیستم‌ها، \lr{\texttt{long}}ها باید در یک فضای چهاربایتی قرار داشته باشند. لذا بگذارید نگاهی به ساختارِ خود بیندازیم:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        struct end_block_struct
+        {
+            unsigned long int next_512_pos; // [0123]
+            unsigned char next_8k_pos1; // [4]
+            unsigned char next_8k_pos2; // [5]
+            unsigned long int prev_251_pos; // [6789]
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+6 بر 4 بخش‌پذیر نیست، لذا کامپایلر دو بایت دیگر اضافه می‌کند تا به 8 برسد. بنابراین چیزی که در واقع داریم این است:
+\begin{LTR}
+%@formatter:off
+\begin{lstlisting}[style=C++Style]
+struct end_block_struct
+{
+    unsigned long int next_512_pos; // [0123]
+    unsigned char next_8k_pos1; // [4]
+    unsigned char next_8k_pos2; // [5]
+    unsigned char pad1, pad2; // [67]
+    unsigned long int prev_251_pos; // [89 10 11]
+\end{lstlisting}
+%@formatter:on
+\end{LTR}
+
+این چیزی نیست که ما می‌خواستیم. عباراتی مانند \lr{\texttt{assert(sizeof(end\_block\_struct) == 16);}} را در برنامهٔ خود قرار دهید تا مراقب کامپایلرهایی که این مشکل را به وجود می‌آورند باشید.

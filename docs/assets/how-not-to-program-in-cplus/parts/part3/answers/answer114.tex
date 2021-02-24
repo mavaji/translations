@@ -1,0 +1,44 @@
+\section{}
+\paragraph{}\label{answer:114}
+مشکل این جاست که دستِ بهینه‌ساز در بازنویسیِ کد، آزاد است. برخی بهینه‌سازها، متغیرها را در رجیسترها قرار می‌دهند تا برنامه سریع‌تر اجرا شود. مثلاً، یک نسخهٔ بهینه‌سازی‌شدهٔ این برنامه بدین صورت است:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        /************************************************
+         * sum -- Sum the sine of the numbers from 0 to *
+         * 0X3FFFFFFF. Actually we don't care *
+         * about the answer, all we're trying to *
+         * do is create some sort of compute *
+         * bound job so that the status_monitor *
+         * can be demonstrated. *
+         ************************************************/
+         /* --- After the optimizer --- */
+         /* --- gets through with it --- */
+         static void sum(void)
+         {
+         	static double sum = 0; /* Sum so far */
+         	register int reg_counter = counter;
+
+         	for (reg_counter = 0;
+         		reg_counter < 0x3FFFFFF; ++reg_counter)
+         	{
+         		sum += sin(double(reg_counter));
+        	 }
+         	printf("Total %f\n", sum);
+         	counter = reg_counter;
+         	exit (0);
+         }
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+از این جا می‌توانیم بفهمیم که مقدار \lr{\texttt{counter}} فقط بعد از این که برنامه تمام می‌شود، به روز می‌شود. اگر بخواهیم که آن را در هر لحظه در ریسمان دیگر مورد بررسی قرار دهیم، خواهیم مُرد. راه‌حل این است که متغیر را به صورت \lr{\texttt{volatile}} اعلان کنیم:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        volatile int counter;
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+آنگاه کامپایلر، هیچ فرضی در مورد این که از نظر بهینه‌سازی، چه کاری در مورد آن می‌تواند بکند، ندارد و ما کُدی تولید کردیم که \lr{\texttt{counter}} را به‌روز نگه می‌دارد.

@@ -1,0 +1,7 @@
+\section{}
+\paragraph{}\label{answer:49}
+مسأله این است که تقدم عملگرهای \lr{\texttt{C++}} آن گونه نیست که برنامه‌نویس فکر می‌کرده است. عملگر \lr{\texttt{+}} قبل از \lr{\texttt{<<}} می‌آید لذا \lr{\texttt{y = x<<2 + 1;}} معنی می‌شود به \lr{\texttt{y = x << (2+1)}} و نتیجه برابر \lr{\texttt{1<<4}} یا \lr{\texttt{8}} می‌باشد. از قوانین ساده تقدم \lr{\texttt{C++}} استفاده کنید:
+\begin{enumerate}
+    \item \lr{\texttt{*, /, \%}}  قبل از \lr{\texttt{+}} و \lr{\texttt{–}} می‌آیند.
+    \item در دو طرف هر چیزی \lr{\texttt{()}} قرار دهید.
+\end{enumerate}

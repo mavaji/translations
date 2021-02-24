@@ -1,0 +1,21 @@
+\section{}
+\paragraph{}\label{answer:43}
+در \lr{\texttt{MS-DOS}} چیزی مانند این را دریافت می‌کنید:
+\LTR\noindent
+\lr{\texttt{The answer is 4C:>\#\\
+(\# is the cursor)}}
+\RTL
+در یونیکس چیزی مثل این:
+\LTR\noindent
+\lr{\texttt{The answer is 4\$ \#}}
+\RTL
+مسأله این است که برنامه‌نویس در انتهای عبارت \lr{\texttt{std::cout}}، یک \lr{\texttt{end of line}} قرار نداد. نتیجه این است که برنامه اجرا می‌شود، چیزی چاپ می‌کند و پایان می‌یابد در حالی که مکان‌نما را در انتهای خط باقی‌می گذارد. سپس پردازندهٔ فرمان اجرا شده و اعلان خود را (\lr{\texttt{C:>}} برای \lr{\texttt{MS-DOS}} و \lr{\texttt{\$}} برای یونیکس) درست بعد از خروجی برنامه قرار می‌دهد.
+
+چیزی که برنامه‌نویس باید می‌نوشت این است:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        std::cout << "The answer is " << result << '\n';
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}

@@ -1,0 +1,11 @@
+\section{}
+\paragraph{}\label{answer:45}
+مشکل این است که عبارت \lr{\texttt{ch+1}} یک عدد صحیح است (مقدار 66). \lr{\texttt{C++}} این را تشخیص می‌دهد و تابع \lr{\texttt{std::cout.operator <<(int)}} را فراخوانی کرده و یک عدد صحیح را در خروجی می‌نویسد. چیزی که برنامه‌نویس می‌بایست بنویسد این است:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        std::cout << static_cast<char>(ch+1);
+        std::cout << static_cast<char>(ch+2);
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}

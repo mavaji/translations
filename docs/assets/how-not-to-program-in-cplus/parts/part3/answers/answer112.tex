@@ -1,0 +1,21 @@
+\section{}
+\paragraph{}\label{answer:112}
+مشکل این جاست که \lr{\texttt{MAX}} طوری تعریف شده که لفظ به لفظ برابر متن \lr{\texttt{"=10"}} باشد. این بدان معناست که:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        for (counter =MAX; counter > 0; --counter)
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+بسط می‌یابد به:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        for (counter ==10; counter > 0; --counter)
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+این عبارت، \lr{\texttt{counter}} را مقداردهی اولیه نمی‌کند (صرفاً \lr{\texttt{counter}} را با 10 مقایسه کرده و نتیجه را دور می‌اندازد). به دلیل اینکه \lr{\texttt{counter}} مقداردهی اولیه نشده است، تعداد تصادفی پیغام تبریک دریافت می‌کنیم.

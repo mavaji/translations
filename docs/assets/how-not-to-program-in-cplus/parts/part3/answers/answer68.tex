@@ -1,0 +1,28 @@
+\section{}
+\paragraph{}\label{answer:68}
+ تابع \lr{\texttt{printf}}، خروجی خود را بافر می‌کند. در واقع، چیزی نمی‌نویسد تا زمانی که بافر پُر شود یا یک \lr{\texttt{newline}} فرستاده شود. برنامه به \lr{\texttt{printf}} می‌رسد، پیغام \lr{\texttt{"Starting"}} درون بافر می‌رود نه به صفحه‌نمایش و تابع \lr{\texttt{average}} اجرا شده و یک خطای تقسیم بر صفر دریافت می‌کند. نتیجه این است که پیغام \lr{\texttt{"Starting"}} گم می‌شود و باعث می‌شود فکر کنیم که تابع \lr{\texttt{average}} هیچ وقت فراخوانی نشده است. راه‌حلِ این مسأله این است که بعد از پیغام شروع، صریحاً بافر را خالی کنیم:
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+            printf("Starting....");
+            fflush(stdout);
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+قاعدهٔ این که یک بافر چه وقتی خالی می‌شود بسته به نوع فایلی که داریم در آن می‌نویسیم، فرق می‌کند:
+\begin{enumerate}
+    \item اگر \lr{\texttt{stdout}} یا \lr{\texttt{stderr}} دارند روی صفحه‌نمایش نوشته می‌شوند، خروجی بافر می‌شود تا زمانی که:
+        \begin{itemize}
+            \item  یک خط نوشته شود.
+            \item \lr{\texttt{stdin}} خوانده شود.
+            \item بافر پُر شود.
+        \end{itemize}
+
+    \item اگر \lr{\texttt{stdout}} یا \lr{\texttt{stderr}} قرار است روی دیسک نوشته شوند، خروجی بافر می‌شود تا زمانی که:
+        \begin{itemize}
+            \item  بافر پر شود.
+        \end{itemize}
+\end{enumerate}
+
+(این‌ها قواعدی هستند که احتمالاً روی سیستمِ خود پیدا می‌کنید. قواعد واقعی، وابسته به سیستم هستند).

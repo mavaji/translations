@@ -1,0 +1,32 @@
+\section{}
+\paragraph{}\label{answer:61}
+مشکل این جاست که عبارت:
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+            5 const char *volatile in_port_ptr =
+            6 (char *)0xFFFFFFE0;
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+به \lr{\texttt{C++}} می‌گوید که اشاره‌گر از نوع \lr{\texttt{volatile}} است. داده‌ای که به آن اشاره می‌شود از نوع \lr{\texttt{volatile}} نیست. نتیجه این است که بهینه‌ساز، عدمِ وجود را برای ما بهینه‌سازی می‌کند. راه‌حل این است که \lr{\texttt{volatile}} را جایی قرار دهیم که دادهٔ مورد اشاره را دستکاری می‌کند. ما همچنین یک \lr{\texttt{const}} به اعلان خود اضافه کرده‌ایم تا مطمئن شویم که اشاره‌گر قابل تغییر نیست. در نتیجه، به اعلان‌های زیر می‌رسیم:
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+            4 // Input register
+            5 volatile char *const in_port_ptr =
+            6 	(char *)0xFFFFFFE0;
+            7
+            8 // Output register
+            10 volatile char *const out_port_ptr =
+            11 		(char *)0xFFFFFFE1;
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+این به \lr{\texttt{C++}} می‌گوید که:
+\begin{itemize}
+    \item \lr{\texttt{in\_port\_ptr}} یک اشاره‌گر ثابت است و قابل تغییر نیست.
+    \item \lr{\texttt{*int\_port\_ptr}} از نوع \lr{\texttt{volatile char}} است که مقدار آن را می‌توان وَرای قوانین عادی برنامه‌نویسی \lr{\texttt{C++}} تغییر داد.
+\end{itemize}

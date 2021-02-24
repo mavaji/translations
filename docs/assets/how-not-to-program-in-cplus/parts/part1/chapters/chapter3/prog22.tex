@@ -1,0 +1,40 @@
+\section[برای پارامترهای ما زیاد است]{برای پارامترهای ما زیاد است \protect\LTRfootnote{\lr{Getting Too Big for Our Parameters}} (راهنمایی \ref{hint:304}، جواب \ref{answer:4})}
+\paragraph{}\label{prog:22}
+ایدهٔ برنامهٔ زیر ساده است: با محدود کردن اندازه به \lr{\texttt{MAX}}، مطمئن شوید که زیاد بزرگ نمی‌شود. کاری که می‌کنیم این است:
+
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+             /************************************************
+             * Test the logic to limit the size of a *
+             * variable. *
+             ************************************************/
+             #include <iostream>
+
+             int main()
+             {
+             	int size = 20; // Size to be limited
+             	const int MAX = 25; // The limit
+
+             	if (size > MAX)
+             		std::cout << "Size is too large\n";
+             		size = MAX;
+
+             	std::cout << "Size is " << size << '\n';
+             	return(0);
+             }
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+\begin{tcolorbox}
+دستور \lr{\texttt{true}} در یونیکس کاری نمی‌کند. در واقع اولین نسخهٔ این برنامه یک فایل دسته‌ایِ 0 خطی بود (به اصطلاح یونیکس \lr{shell script}). در طول سالیان، اضافاتی بی‌معنی به آن افزوده شد تا جایی که برنامهٔ 0 خطی به صورت زیر درآمد.
+\LTR
+\lr{\texttt{\#! /bin/sh}}\\
+\lr{\texttt{\#}}\\
+\lr{\texttt{\#        @(\#)true.sh 1.5 88/02/07 SMI; from UCB}}\\
+\lr{\texttt{\#}}\\
+\lr{\texttt{exit 0}}
+\RTL
+عدد \lr{\texttt{1.5}} شمارهٔ نسخه است. آن بدین معنی است که آنها چهار نسخهٔ قبلی از این برنامه را دستکاری کردند تا به این نسخه رسیدند. دلیل اینکه چرا آنها یک برنامهٔ پوچ را چهار بار تغییر دادند برای من قابل فهم نیست.
+\end{tcolorbox}

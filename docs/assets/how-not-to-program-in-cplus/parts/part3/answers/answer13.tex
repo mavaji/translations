@@ -1,0 +1,57 @@
+\section{}
+\paragraph{}\label{answer:13}
+مشکل در عبارت \lr{\texttt{if}} است. در اولی:
+\begin{LTR}
+%@formatter:off
+\begin{lstlisting}[style=C++Style]
+if (width < MIN) {
+    std::cout << "Width is too small\n";
+    width = MIN;
+\end{lstlisting}
+%@formatter:on
+\end{LTR}
+
+برنامه‌نویس فراموش کرد که آکولاد بسته را بگذارد. البته مشکلی ایجاد نشد چون این قضیه با فراموش کردن یک آکولاد باز در \lr{\texttt{if}} بعدی جبران شد:
+\begin{LTR}
+%@formatter:off
+\begin{lstlisting}[style=C++Style]
+if (height < MIN)
+    std::cout << "Height is too small\n";
+    height = MIN;
+}
+\end{lstlisting}
+%@formatter:on
+\end{LTR}
+
+اگر برنامه را درست توگذاری کنیم، می‌توانیم پی به مشکل ببریم:
+\begin{LTR}
+%@formatter:off
+\begin{lstlisting}[style=C++Style]
+if (width < MIN) {
+    std::cout << "Width is too small\n";
+    width = MIN;
+
+    if (height < MIN)
+        std::cout << "Height is too small\n";
+    height = MIN;
+}
+\end{lstlisting}
+%@formatter:on
+\end{LTR}
+
+آن چه که برنامه‌نویس می‌بایست می‌نوشت این است:
+\begin{LTR}
+%@formatter:off
+\begin{lstlisting}[style=C++Style]
+if (width < MIN) {
+    std::cout << "Width is too small\n";
+    width = MIN;
+}
+
+if (height < MIN) {
+    std::cout << "Height is too small\n";
+    height = MIN;
+}
+\end{lstlisting}
+%@formatter:on
+\end{LTR}

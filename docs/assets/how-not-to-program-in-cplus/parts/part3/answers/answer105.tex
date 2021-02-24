@@ -1,0 +1,44 @@
+\section{}
+\paragraph{}\label{answer:105}
+ماکروی \lr{\texttt{ABORT}} به دو عبارت بسط می‌یابد. لذا نتیجهٔ عبارت \lr{\texttt{if}} برابر است با:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        if (value < 0)
+            std::cerr << "Illegal root" << std::endl;exit (8);
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+یا اگر به درستی توگذاری کنیم:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        if (value < 0)
+            std::cerr << "Illegal root" << std::endl;
+        exit (8);
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+از این جا به راحتی می‌توان فهمید که چرا ما همیشه خارج می‌شویم. به جای ماکروهای چندعبارته از توابع \lr{\texttt{inline}} استفاده کنید:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        inline void ABORT(const char msg[]) {
+            std::cerr << msg << std::endl;
+            exit(8);
+        }
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+اگر مجبورید از ماکروهای چندعبارته استفاده کنید، آنها را در آکولاد قرار دهید:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        #define ABORT(msg) \
+            {std::cerr << msg << std::endl;exit(8);}
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}

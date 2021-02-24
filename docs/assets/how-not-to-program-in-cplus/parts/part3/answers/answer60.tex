@@ -1,0 +1,51 @@
+\section{}
+\paragraph{}\label{answer:60}
+ برنامه‌نویس عادت بدی دارد که فایل‌ها را بعد از این که باز کرد، نمی‌بندد. خیلی زود، تعداد فایل‌های باز به ماکزیمم رسیده و سیستم به او اجازهٔ بازکردن فایل جدیدی را نمی‌دهد. در هر جا که لازم باشد باید فایل‌ها را بست:
+ \begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        int fd = open(cur_ent->d_name, O_RDONLY);
+        if (fd < 0)
+            continue; // Can't get the file so try again
+
+        int magic; // The file's magic number
+        int read_size = read(fd, &magic, sizeof(magic));
+
+        if (read_size != sizeof(magic)) {
+            close(fd); // <---- added
+            continue;
+        }
+
+        if (magic == MAGIC) {
+            close(fd); // <---- added
+            return (cur_ent->d_name);
+        }
+
+        close(fd); // <---- added
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+برنامه‌نویس هم‌چنین از \lr{\texttt{opendir}} برای بازکردن یک دایرکتوری استفاده می‌کند. او هیچ وقت آن را نمی‌بندد. بنابراین یک \lr{\texttt{closedir}} لازم است.
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        void scan_dir(
+            const char dir_name[] // Directory name to use
+        )
+        {
+            DIR *dir_info = opendir(dir_name);
+            if (dir_info == NULL)
+                return;
+            chdir(dir_name);
+            while (1) {
+                char *name = next_file(dir_info);
+                if (name == NULL)
+                    break;
+                std::cout << "Found: " << name << '\n';
+            }
+            closedir(dir_info); // <---- added
+        }
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}

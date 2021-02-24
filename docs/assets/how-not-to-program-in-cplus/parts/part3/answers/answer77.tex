@@ -1,0 +1,26 @@
+\section{}
+\paragraph{}\label{answer:77}
+مشکل در کد زیر است:
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+            while (first != NULL) {
+                delete first;
+                first = first->next;
+            }
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+این داده‌ها را پاک کرده و سپس از آنها استفاده می‌کند. بعد از این که چیزی پاک شد، باید دور انداخته شود. همیشه بعد از \lr{\texttt{delete}} کردن یا \lr{\texttt{free}} کردن یک اشاره‌گر، مقدار آن را برابر \lr{\texttt{NULL}} قرار دهید. وقتی برنامه با مقداری محافظت نوشته می‌شود، مشکل قابل مشاهده است:
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+            delete first;
+            first = NULL;
+            first = first->next;
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+همچنین، به خاطر محافظت اضافه‌شده، یعنی مقدار‌دهی \lr{\texttt{first}} به \lr{\texttt{NULL}}، اگر بخواهیم از اشاره‌گر استفاده کنیم، در اغلب سیستم‌ها با شکست مواجه می‌شویم.

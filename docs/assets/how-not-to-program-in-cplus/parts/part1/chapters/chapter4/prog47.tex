@@ -1,0 +1,48 @@
+\section[عقب‌ماندگی مایکروسافت]{عقب‌ماندگی مایکروسافت \protect\LTRfootnote{\lr{Microsoft Backwardness}} (راهنمایی \ref{hint:217}، جواب \ref{answer:37})}
+\paragraph{}\label{prog:47}
+چرا وقتی برنامهٔ زیر در \lr{MS-DOS} کامپایل و اجرا می‌شود نمی‌تواند فایل مربوطه را باز کند؟
+
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        /************************************************
+         * read config file -- Open a configuration *
+         * file and read in the data. *
+         * *
+         * Designed to work on both UNIX and MS-DOS. *
+         * *
+         * Note: Incomplete program. *
+         ************************************************/
+         #include <iostream>
+         #include <fstream>
+
+         #ifdef MS_DOS
+
+         // DOS path
+         const char name[] = "\root\new\table";
+
+         #else /* MS_DOS */
+
+         // UNIX path
+         const char name[] = "/root/new/table";
+
+         #endif /* MS_DOS */
+
+
+         int main() {
+         	// The file to read
+         	std::ifstream in_file(name);
+
+         	if (in_file.bad())
+         	{
+         		std::cerr <<
+         			"Error: Could not open " << std::endl;
+         		std::cerr << name << std::endl;
+         		exit (8);
+         	}
+
+         	return (0);
+         }
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}

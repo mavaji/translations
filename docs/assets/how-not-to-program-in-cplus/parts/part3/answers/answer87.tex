@@ -1,0 +1,13 @@
+\section{}
+\paragraph{}\label{answer:87}
+نسخه پیشوندی \lr{\texttt{++}} عدد را بعد از افزایش، برمی‌گرداند. لذا \lr{\texttt{++++i;}} به \lr{\texttt{C++}} می‌گوید که یکی به مقدار \lr{\texttt{i}} اضافه کن، نتیجه را برمی‌گرداند و سپس متغیر \lr{\texttt{i}} را دوباره افزایش می‌دهد. نسخهٔ پسوندی \lr{\texttt{++ (i++)}} یک کپی از متغیر برمی‌گرداند، سپس مقدار آن را افزایش می‌دهد. بنابراین \lr{\texttt{++++i}}:
+\begin{enumerate}
+    \item به \lr{\texttt{C++}} می‌گوید که یک کپی از \lr{\texttt{i}} بگیر (مثل \lr{\texttt{tmp\_1}})
+    \item یکی به مقدار \lr{\texttt{i}} اضافه کن.
+    \item بقیه کارها را روی \lr{\texttt{tmp\_1}} انجام بده.
+    \item یک کپی از \lr{\texttt{tmp\_1}} بگیر (مثلاً \lr{\texttt{tmp\_2}})
+    \item یکی به مقدار \lr{\texttt{tmp\_2}} اضافه کن.
+    \item مقدار \lr{\texttt{tmp\_1}} را به عنوان نتیجه عبارت برگردان.
+\end{enumerate}
+
+از \lr{\texttt{++}} و \lr{\texttt{--}} به صورت تکی استفاده کنید.

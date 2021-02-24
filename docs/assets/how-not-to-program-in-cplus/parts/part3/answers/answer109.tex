@@ -1,0 +1,26 @@
+\section{}
+\paragraph{}\label{answer:109}
+مشکل در تابع \lr{\texttt{operator=}} است. این تابع این گونه تعریف شده است:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        trouble operator = (const trouble &i_trouble)
+        {
+            std::cout << "= operator called\n";
+            data = i_trouble.data;
+            return (*this);
+        }
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+مقدار بازگشتی این تابع، کلاس \lr{\texttt{trouble}} است. ولی مشکلی وجود دارد. از آن جا که تابع، هیچ ارجاعی برنمی‌گرداند، یک کپی از متغیر باید ایجاد شود. این بدان معناست که تابع سازنده کپی باید فراخوانی شود. این، تابع \lr{\texttt{operator=}} را فراخوانی می‌کند، که عمل بازگشت را انجام می‌دهد و تابع سازنده را فراخوانی می‌کند و ...
+
+راه‌حل این است که تابع \lr{\texttt{operator=}} را مجبور کنیم که ارجاعی به کلاس برگرداند:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        trouble& operator = (const trouble &i_trouble)
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}

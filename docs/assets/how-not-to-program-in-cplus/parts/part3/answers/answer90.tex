@@ -1,0 +1,20 @@
+\section{}
+\paragraph{}\label{answer:90}
+\lr{\texttt{C++}} از نمایه‌گذاری مبتنی بر صفر استفاده می‌کند. بنابراین برای \lr{\texttt{array[5]}} عناصر معتبر عبارتند از: \lr{\texttt{array[0], array[1], array[2], array[3], array[4]}}
+
+با این حال، برنامه‌نویس از عناصر 1 تا 5 استفاده می‌کند. چیزی به اسم \lr{\texttt{array[5]}} وجود ندارد، لذا برنامه حافظه را به طور تصادفی دستکاری می‌کند، که باعث برهم‌ریختگیِ حافظه می‌شود. به همین دلیل است که اکثر برنامه‌های \lr{\texttt{C++}} چنین عبارتی ندارند:
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+            for (i = 1; i <= 5; ++i) {
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+به جای آن نوشته می‌شود:
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+            for (i = 0; i < 5; ++i) {
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}

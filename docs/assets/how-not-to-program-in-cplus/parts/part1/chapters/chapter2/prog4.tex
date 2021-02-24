@@ -1,0 +1,35 @@
+\section[مشکل آغازین عادی]{مشکل آغازین عادی \protect\LTRfootnote{\lr{Typical Initial Problem}} (راهنمایی \ref{hint:116}، جواب \ref{answer:51})}
+یک مسأله کلاسیک ریاضی، جمع اعداد 1 تا 100 است. ولی به نظر می‌رسد که این برنامه این کار را درست انجام نمی‌دهد:
+
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+             /************************************************
+             * A program to sum the numbers from 1 to 100 *
+             * using a brute force algorithm. *
+             ************************************************/
+             #include <iostream>
+
+             int main()
+             {
+             	int sum; // The running sum
+             	int count; // The current number
+
+             	for (count = 1; count <= 100; ++count)
+             		sum += count;
+
+             	std::cout <<
+             		"The sum of the numbers " <<
+            		"between 1 and 100 is " <<
+             		sum << '\n';
+             	return (0);
+             }
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+\begin{tcolorbox}
+    یک کارخانه مونتاژ لوازم الکترونیکی با مشکل دله‌دزدی مواجه شد. هزاران قطعهٔ الکترونیکی ناپدید می‌شدند. کارخانه مقررات امنیتی زیادی را وضع کرد، ولی کمبودها کماکان ادامه داشت. این قطعات کجا ممکن بود رفته باشند؟
+
+    بالاخره یک سرایدار پرده از راز معما گشود. او آن بالا داشت لامپی را عوض می‌کرد که سه لانه پرنده را پیدا کرد. پرنده‌ها قطعات را از کف کارخانه برمی‌داشتند و از آنها در ساخت لانه‌هایشان استفاده می‌کردند. طبق برآوردها، هر کدام از لانه‌ها، ده هزار دلار می‌ارزید.
+\end{tcolorbox}

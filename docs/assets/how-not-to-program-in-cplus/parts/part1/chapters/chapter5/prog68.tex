@@ -1,0 +1,61 @@
+\section[محاسبهٔ اشتباه]{محاسبهٔ اشتباه \protect\LTRfootnote{\lr{Miscalculating}} (راهنمایی \ref{hint:73}، جواب \ref{answer:95})}
+\paragraph{}\label{prog:68}
+قرار است یک ماشین‌حسابِ چهارکاره بسازیم. کاربر باید یک عملگر و یک عدد را وارد کند و برنامه شروع به کار می‌کند. مثلاً:
+\LTR\noindent
+\lr{\texttt{Enter operator and value: +10}}\\
+\lr{\texttt{Total: 10}}
+\RTL
+ولی کارها آن طور که انتظار می‌رورد، پیش نمی‌رود.
+
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+         /************************************************
+         * calc -- Simple 4 function calculator. *
+         * *
+         * Usage: *
+         * $ calc *
+         * Enter operator and value: + 5 *
+         * *
+         * At the end of each operation the accumulated *
+         * results are printed. *
+         ************************************************/
+         #include <stdio.h>
+         int main() {
+         	char oper; /* Operator for our calculator */
+         	int result;/* Current result */
+         	int value; /* Value for the operation */
+
+        	result = 0;
+        	while (1)
+        	{
+         		char line[100]; // Line from the user
+         		printf("Enter operator and value:");
+
+         		fgets(line, sizeof(line), stdin);
+         		sscanf(line, "%c %d", oper, value);
+
+         		switch (oper) {
+         			case '+':
+         				result += value; break;
+         			case '-':
+         				result -= value; break;
+         			case '*':
+         				result *= value; break;
+         			case '/':
+         				if (value == 0)
+         					printf("Divide by 0 error\n");
+         				else
+         					result /= value;
+         				break;
+         			case 'q':
+         				exit (0);
+         			default:
+         				printf("Bad operator entered\n"); break;
+         		}
+         		printf("Total: %d\n", result);
+         	}
+         }
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}

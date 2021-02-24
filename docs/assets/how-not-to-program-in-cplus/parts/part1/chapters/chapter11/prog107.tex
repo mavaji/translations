@@ -1,0 +1,41 @@
+\section[آشغال جمع‌کنِ بهتر]{آشغال جمع‌کنِ بهتر (راهنمایی \ref{hint:336}، جواب \ref{answer:61})}
+\paragraph{}\label{prog:107}
+مشکل برنامه \ref{prog:106} را با اضافه کردن کلمه کلیدی \lr{\texttt{volatile}} حل کرده‌ایم. ولی باز هم کارها درست پیش نمی‌رود.
+
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+             /*************************************************
+             * clear port -- Clear the input port. *
+             *************************************************/
+             // Input register
+             const char *volatile in_port_ptr =
+             (char *)0xFFFFFFE0;
+
+             // Output register
+             const char *volatile out_port_ptr =
+             (char *)0xFFFFFFE1;
+
+             /***********************************************
+             * clear_input -- Clear the input device by *
+             * reading enough characters to empty the *
+             * buffer. (It doesn't matter if we read *
+             * extra, just so long as we read enough.)*
+             ***********************************************/
+             void clear_input(void)
+             {
+             	char ch; // Dummy character
+
+             	ch = *in_port_ptr; // Grab data
+             	ch = *in_port_ptr; // Grab data
+             	ch = *in_port_ptr; // Grab data
+             }
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+\begin{tcolorbox}
+    کاربری مشکل بزرگی داشت و تقاضای پشتیبانی فنی کرد. تکنیسین ساعت‌ها تلاش نمود تا مشکل را تلفنی برطرف سازد ولی نتوانست لذا از کاربر خواست که یک کپی از دیسک خود را برای او بفرستد. روز بعد توسط فدرال‌اکسپرس، نامه‌ای به دست تکنیسین رسید که یک فتوکپی از دیسک در آن بود. کاربر زیاد احمق نبود. او می‌دانست که دیسک دوطرفه است و از هر دو طرف کپی گرفته بود.
+
+    به طور شگفت‌آوری، تکنیسین قادر بود از طریق فتوکپی، مشکل را پیدا کند. او فهمید که کاربر نسخهٔ اشتباهی از نرم‌افزار را در اختیار دارد.
+\end{tcolorbox}

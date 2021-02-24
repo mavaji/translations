@@ -1,0 +1,8 @@
+\section{}
+\paragraph{}\label{answer:50}
+چاپ می‌کند:
+\LTR\noindent
+\lr{\texttt{‫‪Hello‬‬\\
+‫‪Hello‬‬}}
+\RTL
+مشکل این جاست که وقتی \lr{\texttt{fork}} انجام می‌شود، در بافر \lr{\texttt{printf}} داده وجود دارد. \lr{\texttt{fork}} دو کپی از پردازه و دو کپی از داده در بافر \lr{\texttt{printf}} ایجاد می‌کند. بنابراین وقتی بعداً بافر (در دو پردازه) خالی می‌شود، از هر کدام از آنها یک \lr{\texttt{Hello}} دریافت می‌کنیم.

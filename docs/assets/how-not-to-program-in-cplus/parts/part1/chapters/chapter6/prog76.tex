@@ -1,0 +1,38 @@
+\section[مشکلِ دو چندان]{مشکلِ دو چندان \protect\LTRfootnote{\lr{Double Trouble}} (راهنمایی \ref{hint:133}، جواب \ref{answer:46})}
+\paragraph{}\label{prog:76}
+ماکروی \lr{\texttt{DOUBLE}} طراحی شده است تا مقدار آرگومان خود را دو برابر کند. برنامهٔ آزمون، مقادیر \lr{\texttt{DOUBLE}} اعداد 1 تا 5 را می‌نویسد. ولی یک جای کار ایراد دارد. مشکل چیست؟
+
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+         /************************************************
+         * Double -- Print double table. *
+         * *
+         * Print the numbers 1 through 5 and their *
+         * doubles. *
+         ************************************************/
+         #include <iostream>
+
+         /************************************************
+         * DOUBLE -- Given a number return its double. *
+         ************************************************/
+         #define DOUBLE(x) (x * 2)
+
+         int main()
+         {
+         	int i; // Number to print and to double
+
+         	for (i = 0; i < 5; ++i) {
+         		std::cout << "The double of " << i+1 <<
+         			" is " << DOUBLE(i+1) << std::endl;
+         	}
+
+         	return (0);
+         }
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+\begin{tcolorbox}
+    زبان برنامه‌نویسی \lr{\texttt{C}} - زبانی که انعطاف‌پذیری زبان اسمبلی و قدرت زبان اسمبلی را در هم می‌آمیزد.
+\end{tcolorbox}

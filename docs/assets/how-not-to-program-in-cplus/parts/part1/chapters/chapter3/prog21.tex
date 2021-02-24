@@ -1,0 +1,50 @@
+\section[بدون شرح]{بدون شرح \protect\LTRfootnote{\lr{No Comment}} (راهنمایی \ref{hint:168}، جواب \ref{answer:91})}
+\paragraph{}\label{prog:21}
+برنامهٔ زیر چه چیزی را چاپ می‌کند؟ چرا؟
+
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+             /************************************************
+             * demonstrate how to do a divide. *
+             ************************************************/
+             #include <iostream>
+
+             /************************************************
+             * div -- Do a divide *
+             * *
+             * Returns: Result of the divide. *
+             * *
+             * divisor is reset to 1. *
+             ************************************************/
+             static int div(
+             	int *divisor // Pointer to the divisor
+             )
+             {
+             	int result = 5; // Dividend
+
+             	result=result/*divisor; /* Do divide */;
+             	*divisor=l;
+             	return (result);
+             }
+
+             int main()
+             {
+             	int num = 5; // Divisor
+
+             	std::cout << "Division " <<
+             		div(&num) << std::endl;
+             	return (0);
+             }
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+\begin{tcolorbox}
+    \centering
+    جایزهٔ بهترین خطای رمزآلود تقدیم می‌شود به:
+
+    \lr{Error: Success}
+
+    من هنوز دارم رمز آن را کشف می‌کنم.
+\end{tcolorbox}

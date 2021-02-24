@@ -1,0 +1,20 @@
+\section{}
+\paragraph{}\label{answer:25}
+مشکل در عبارت \lr{\texttt{if(n2 =! 0)}} است. این یک عبارت انتصاب درون یک \lr{\texttt{if}} است. اگر برنامه را بازنویسی کنیم تا از مختصرنویسی پرهیز کرده باشیم به دو عبارت می‌رسیم:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        n2 = !0;
+        if (n2)
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+استفاده از «نه» منطقی در این حالت \lr{\texttt{(!0)}} به ما نتیجه 1 را می‌دهد. بنابراین همیشه داریم به \lr{\texttt{n2}} مقدار 1 را می‌دهیم، و سپس عملِ مقایسه و تقسیم را انجام می‌دهیم. \lr{\texttt{!=}} به صورت برعکس \lr{\texttt{=!}} نوشته شده بود و به همین دلیل این نتایج عجیب را به ما می‌داد. عبارت باید این گونه باشد:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        if (n2 != 0)
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}

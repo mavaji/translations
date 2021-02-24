@@ -1,0 +1,18 @@
+\section{}
+\paragraph{}\label{answer:78}
+نوع‌های متغیرها بدین صورت می‌باشد:
+\begin{itemize}
+    \item \lr{\texttt{sam}} یک اشاره‌گر کاراکتری است\lr{\texttt{(char *)}}
+	\item \lr{\texttt{joe}} یک کاراکتر است \lr{\texttt{(char)}}
+\end{itemize}
+
+بعد از این که پیش‌پردازنده درون اعلان می‌رود، به این نتیجه می‌رسیم:
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+            char * sam, joe;
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+برای تعریف انواع جدید، به جای \lr{\texttt{\#define}} از \lr{\texttt{typedef}} استفاده کنید.

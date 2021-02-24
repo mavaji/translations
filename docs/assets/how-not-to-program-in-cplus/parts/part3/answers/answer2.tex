@@ -1,0 +1,14 @@
+\section{}
+\paragraph{}\label{answer:2}
+مسأله این است که عبارت :
+\begin{LTR}
+    %@formatter:off
+            \begin{lstlisting}[style=C++Style]
+                // The bit we are printing now
+                short int bit = (1<<16);
+            \end{lstlisting}
+            %@formatter:on
+\end{LTR}
+
+بیت متغیر را با \lr{\texttt{1000 0000 0000 0000(b)}} مقداردهی نمی‌کند. درعوض، مقدار آن را برابر \lr{\texttt{1 0000 0000 0000 0000(b)}} قرار می‌دهد. متأسفانه، آن نمی‌تواند 17 بیت را در خود نگه دارد لذا نتیجه این است که مقدارش برابر صفر می‌شود. از آنجا که مقدارش صفر است، عبارت ارزیابی همیشه مقدار غلط دارد و نتیجه این می‌شود:
+\lr{\texttt{---------------}}

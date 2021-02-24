@@ -1,0 +1,48 @@
+\section[برنامه‌نویسیِ ابلهانه]{برنامه‌نویسیِ ابلهانه \protect\LTRfootnote{\lr{Sheepish Programming}} (راهنمایی \ref{hint:165}، جواب \ref{answer:1})}
+\paragraph{}\label{prog:55}
+براونِ کشاورز، یک پرورش‌دهندهٔ گوسفند، همسایه‌ای داشت که می‌توانست به یک گله نگاه کند و بگوید که چند گوسفند در آن وجود دارد. او بسیار متعجب بود که چگونه دوستش به این سرعت این کار را انجام می‌دهد، لذا از او پرسید.
+
+«یان، چطور به این سرعت می‌توانی تعداد گوسفندها را بگویی؟»
+
+«به سادگی، پاها را می‌شمارم و بر 4 تقسیم می‌کنم.»
+براونِ کشاورز آنقدر تحت تأثیر قرار گرفت که یک برنامهٔ \lr{\texttt{C++}} کوتاه نوشت تا درستی الگوریتم گوسفندشماریِ یان را بررسی کند. این برنامه برای گله‌های بزرگ جواب نمی‌دهد. چرا؟
+
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+         /************************************************
+         * sheep -- Count sheep by counting the *
+         * number of legs and dividing by 4. *
+         ************************************************/
+         #include <iostream>
+
+         /*
+         * The number of legs in some different
+         * size herds.
+         */
+         const short int small_herd = 100;
+         const short int medium_herd = 1000;
+         const short int large_herd = 10000;
+
+         /************************************************
+         * report_sheep -- Given the number of legs, *
+         * tell us how many sheep we have. *
+         ************************************************/
+         static void report_sheep(
+         	const short int legs // Number of legs
+         )
+         {
+         	std::cout <<
+         		"The number of sheep is: " <<
+         		(legs/4) << std::endl;
+         }
+
+         int main() {
+         	report_sheep(small_herd*4); // Expect 100
+         	report_sheep(medium_herd*4);// Expect 1000
+         	report_sheep(large_herd*4); // Expect 10000
+         	return (0);
+         }
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}

@@ -1,0 +1,35 @@
+\section[برنامه‌نویسی فریب‌آمیز]{برنامه‌نویسی فریب‌آمیز \protect\LTRfootnote{\lr{Shifty Programming}} (راهنمایی \ref{hint:266}، جواب \ref{answer:49})}
+\paragraph{}\label{prog:14}
+برنامه‌نویس می‌داند که شیفت دادن به چپ مانند ضرب در توانی از 2 است. به عبارت دیگر:
+\LTR
+\noindent\lr{\texttt{x << 1}} \rl{برابر است با}  \lr{\texttt{x * 2 (2 = 2\textsuperscript{1})}}\\
+\lr{\texttt{x << 2}} \rl{برابر است با}  \lr{\texttt{x * 4 (4 = 2\textsuperscript{2})}}\\
+\lr{\texttt{x << 3}} \rl{برابر است با}  \lr{\texttt{x * 8 (8 = 2\textsuperscript{3})}}
+\RTL
+برنامه‌نویس از این ترفند برای انجام یک محاسبهٔ سریع استفاده می‌کند ولی یک چیز اشتباه است:
+
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+             /************ *********** ************ **********
+             * Simple syntax testing. *
+             ************************************************/
+             #include <iostream>
+
+             int main(void)
+             {
+             	int x,y; // Two numbers
+
+             	x = 1;
+
+             	y = x<<2 + 1; // x<<2 = 4 so y = 4+1 = 5
+             	std::cout << "Y=" << y << std::endl;
+             	return (0);
+             }
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+\begin{tcolorbox}
+    یک هکر مأمور شد تا برنامه‌ای بنویسد که یک ماشین‌حسابِ چهارکاره را شبیه‌سازی کند. این برنامه باید عملِ جمع، تفریق، ضرب و تقسیم را انجام می‌داد. با این حال مشخص نشده بود که چه نوع عددی باید استفاده شود. بنابراین برنامهٔ هکر با اعداد رومی کار می‌کرد \lr{(IV + III = VII)}. به یک دفترچه راهنمای کاربر نیز نیاز بود ولی زبان آن هم مشخص نشده بود. بنابراین برنامه‌نویس یک راهنمای مفصل به زبان لاتین تهیه کرد.
+\end{tcolorbox}

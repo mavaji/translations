@@ -1,0 +1,38 @@
+\section{}
+\paragraph{}\label{answer:89}
+بهینه‌ساز می‌داند با وجود این که زیربرنامه، مقدار \lr{\texttt{result}} را محاسبه می‌کند، کاری با آن نمی‌کند. لذا چه \lr{\texttt{result}} محاسبه شود و چه نشود، برنامه به یک صورت کار می‌کند. بنابراین، بهینه‌ساز، نگاهی به حلقه می‌اندازد:
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+            20 for (i = 0; i < 1863; ++i)
+            21 {
+            22  result = factor1 * factor2;
+            23 }
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+که بهینه می‌شود به:
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+            20 for (i = 0; i < 1863; ++i)
+            21 {
+            22      /* Do nothing */;
+            23 }
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+البته ما نیازی نداریم تا هیچ‌کار را، 1863 دفعه انجام دهیم لذا این هم بهینه‌سازی می‌شود:
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+            20 /* No loop needed */
+            21 {
+            22  /* Do nothing */;
+            23 }
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+این تقریباً بهینه‌ترین حالت است. راه ممانعتِ بهینه‌ساز از انجام این کار این است که متغیر \lr{\texttt{result}} را \lr{\texttt{volatile}} اعلان کنیم. برنامهٔ \ref{prog:110} نشان می‌دهد که بعد از این کار چه اتفاقی می‌افتد.

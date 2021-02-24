@@ -1,0 +1,29 @@
+\section{}
+\paragraph{}\label{answer:31}
+مسأله این است که عبارت \lr{\texttt{else}} به نزدیک‌ترین \lr{\texttt{if}} تعلق دارد. کُدِ درست‌توگذاری‌شده این گونه است:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        23 if (balance < 0)
+        24 	if (balance < - (100*DOLLAR))
+        25 		cout << "Credit " << -balance << endl;
+        26 	else
+        27 		cout << “Debt “ << balance << endl;
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+و این چیزی نیست که مَدّنظر برنامه‌نویس بوده باشد. چیزی که او می‌خواست این است:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        if (balance < 0) {
+            if (balance < - (100*DOLLAR))
+                cout << "Credit " << -balance << endl;
+        } else
+            cout << "Debt " << balance << endl;
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+از \lr{\texttt{\{\}}} در دو طرف \lr{\texttt{if}}، \lr{\texttt{for}}، \lr{\texttt{while}} یا هر عبارت کنترلی دیگری که بیش از یک عبارت کنترلی در خود دارد، استفاده کنید.

@@ -1,0 +1,15 @@
+\part{برنامه‌ها}
+
+\titleformat{\section}{\bfseries}{برنامه \thesection, }{0em}{}
+\setcounter{section}{0}
+\renewcommand*\thesection{\arabic{section}}
+
+\input{parts/part1/introduction}
+
+\newcommand{\@chaptersspath}{parts/part1/chapters}
+
+\foreach \n in {1,2,...,11}{
+    \IfFileExists{\@chaptersspath/chapter\n/chapter\n}{
+        \input{\@chaptersspath/chapter\n/chapter\n}
+    }
+}

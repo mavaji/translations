@@ -1,0 +1,62 @@
+\section{}
+\paragraph{}\label{answer:113}
+فاصله‌ای که بعد از اسم \lr{\texttt{DOUBLE}} وجود دارد، این ماکرو را تبدیل به یک ماکروی سادهٔ جابجاییِ متن می‌سازد. بنابراین،
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        #define DOUBLE (value) ((value) + (value))
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+باعث می‌شود که \lr{\texttt{DOUBLE}} تعویض شود با:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        (value) ((value) + (value))
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+و این بدان معناست که خط:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        std::cout << "Twice " << counter << " is " <<
+            DOUBLE(counter) << '\n';
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+بدین صورت در می‌آید:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        std::cout << "Twice " << counter << " is " <<
+            (value) ((value) + (value)) (counter) << '\n';
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+(با اضافه کردن توگذاری)
+
+راه‌حل: \lr{\texttt{DOUBLE}} را بدین صورت تعریف کنید:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        #define DOUBLE(value) ((value) + (value))
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+تا آنجا که ممکن است، به جای ماکروهای پارامتردار از توابع \lr{\texttt{inline}} استفاده کنید. مثال:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        inline DOUBLE(const int value) {
+            return (value + value);
+        }
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+

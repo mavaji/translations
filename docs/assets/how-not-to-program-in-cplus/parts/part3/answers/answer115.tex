@@ -1,0 +1,32 @@
+\section{}
+\paragraph{}\label{answer:115}
+من همیشه سعی می‌کنم مطمئن شوم که متغیر \lr{\texttt{data}} را قبل از این که بازنویسی کنم، \lr{\texttt{delete}} کنم. بنابراین مشکل حافظه نخواهم داشت. من حتی در کد زیر نیز آن را پاک می‌کنم:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        34 // Copy constructor
+        35 v_string(const v_string &old)
+        36 {
+        37 	if (data != NULL)
+        38 	{
+        39 		delete[] data;
+        40 		data = NULL;
+        41 	}
+        42	 data = strdup(old.data);
+        43 }
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+این، تابع سازنده کپی است. اولین کاری که انجام می‌دهد این است که ببیند آیا \lr{\texttt{data}} چیزی درون خود دارد یا نه، و اگر داشت، آن را \lr{\texttt{delete}} می‌کند. ولی \lr{\texttt{data}} چه چیزی می‌تواند در خود داشته باشد؟ ما فقط کلاس را ایجاد کردیم و آن را مقداردهی اولیه نکرده‌ایم. بنابراین داریم یک اشاره‌گر تصادفی را پاک می‌کنیم و در نتیجه، برنامه از کار می‌افتد. تابع سازنده‌ای که به درستی نوشته شده باشد، این است:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        34 // Copy constructor
+        35 v_string(const v_string &old):
+        36 	data(strdup(old.data))
+        37 {}
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+

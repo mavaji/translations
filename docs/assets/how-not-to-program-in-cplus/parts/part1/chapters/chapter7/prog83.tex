@@ -1,0 +1,39 @@
+\section[خروجی وحشی]{خروجی وحشی \protect\LTRfootnote{\lr{Wild Output}} (راهنمایی \ref{hint:157}، جواب \ref{answer:111})}
+\paragraph{}\label{prog:83}
+یک دانشجوی \lr{\texttt{C++}} می‌خواست ببیند که سازنده‌ها\LTRfootnote{\lr{Constructor}} و مخرب‌ها\LTRfootnote{\lr{Destructor}} چگونه فراخوانی می‌شوند، لذا برنامهٔ زیر را نوشت. او چیزی بیش از آن چه که توقع داشت فراگرفت. مشکل چیست؟
+
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+             /************************************************
+             * Class tester. Test constructor / destructor*
+             * calling. *
+             ************************************************/
+             #include <iostream>
+
+             /************************************************
+             * tester -- Class that tells the world when *
+             * it's created and destroyed. *
+             ************************************************/
+             class tester {
+             	public:
+             		tester(void) {
+             			std::cout <<
+             			"tester::tester() called\n";
+             		}
+             		~tester(void) {
+             			std::cout <<
+             			"tester::~tester() called\n";
+             		}
+             };
+
+             static tester a_var; // Variable to test with
+
+             int main()
+             {
+             	std::cout << "In main\n";
+            	return (0);
+             }
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}

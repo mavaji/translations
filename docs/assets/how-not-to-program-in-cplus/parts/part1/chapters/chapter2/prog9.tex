@@ -1,0 +1,39 @@
+\section[بدون شرح]{بدون شرح \protect\LTRfootnote{\lr{No Comment}} (راهنمایی \ref{hint:41}، جواب \ref{answer:62})}
+این برنامه، مساحت یک مثلث را محاسبه می‌کند. فرمول آن ساده است و مشخص است که همه چیز کار می‌کند ولی یک اشکال شگفت‌آور در این کد وجود دارد:
+
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+             /************************************************
+             * triangle -- Compute the area of a triangle *
+             ************************************************/
+             #include <iostream>
+             int main()
+             {
+             	int base = 0; /* Base of the triangle */
+             	int height = 0; /* Height of the triangle */
+
+             	base = 5; /* Set the base of the triangle
+            	height = 2; /* Set the height */
+
+             	// Area of the triangle
+             	int area = (base * height) / 2;
+
+             	std::cout << "The area is " <<
+             		area << std::endl;
+             	return (0);
+             }
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+\begin{tcolorbox}
+    یک مدیر سیستم، با روترِ شبکه مشکلات زیادی داشت. شماره خطاهای عجیب و غریبی مثل \lr{E6} و \lr{B2} روی صفحه‌نمایش دیده می‌شدند. او با سازنده تماس گرفت و به قسمت خدماتِ پس از فروش وصل شد.
+
+    مدیر سیستم: می‌توانید به من بگویید کد \lr{E6} یعنی چه؟\\
+    تکنیسین: خط ارتباطی 6 اتصال کوتاه کرده.\\
+    - این مطلب کجا نوشته شده است؟\\
+    - در دفترچه راهنمای فنی.\\
+    - ما مشکلات زیادی اینجا داریم، می‌توانید یک نسخه از آن راهنما را برای من فکس کنید؟\\
+    - (با اکراه) خب، باشد. ولی این تنها نسخه‌ای است که دارم. قول بدهید که آن را دوباره به من فکس می‌کنید.\\
+\end{tcolorbox}

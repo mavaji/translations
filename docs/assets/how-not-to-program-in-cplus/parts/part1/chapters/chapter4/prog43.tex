@@ -1,0 +1,83 @@
+\section[بی‌اساس]{بی‌اساس \protect\LTRfootnote{\lr{Baseless}} (راهنمایی \ref{hint:330}، جواب \ref{answer:58})}
+\paragraph{}\label{prog:43}
+می‌دانیم که \lr{\texttt{2}} یک \lr{\texttt{int}} است. پس چرا \lr{\texttt{C++}} فکر می‌کند که آن، یک عدد اعشاری است و تابعِ غلط را فراخوانی می‌کند؟
+
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+         /************************************************
+         * demonstrate the use of derived classes. *
+         ************************************************/
+         #include <iostream>
+
+         /************************************************
+         * base -- A sample base class. *
+         * Prints various values. *
+         ************************************************/
+         class base
+         {
+         	// Constructor defaults
+         	// Destructor defaults
+         	// Copy constructor defaults
+         	// Assignment operator defaults
+         	public:
+         		// Print a floating point number
+         		void print_it(
+         			float value // The value to print
+         		)
+         		{
+         			std::cout <<
+         				"Base (float=" << value << ")\n";
+         		}
+         		// Print an integer value
+         		void print_it(
+         			int value // The value to print
+         		)
+         		{
+         			std::cout <<
+         				"Base (int=" << value << ")\n";
+         		}
+         };
+
+         class der
+         {
+         	// Constructor defaults
+         	// Destructor defaults
+         	// Copy constructor defaults
+         	// Assignment operator defaults
+         	public:
+         		// Print a floating point number
+         		void print_it(
+         			float value // The value to print
+         		)
+         		{
+         			std::cout <<
+         				"Der (float=" << value << ")\n";
+         		}
+         };
+
+         int main()
+         {
+         	der a_var; // A class to play with
+
+         	// Print a value using der::print_it(float)
+         	a_var.print_it(1.0);
+
+         	// Print a value using base::print_it(int)
+         	a_var.print_it(2);
+         	return (0);
+         }
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+\begin{tcolorbox}
+    نسخهٔ اصلی دستور \lr{\texttt{mt}} یونیکس یک پیغام خطای غیرعادی داشت که وقتی که نمی‌توانست دستوری را بفهمد، ظاهر می‌شد:
+    \LTR\noindent
+    \lr{\texttt{mt –f /dev/rst8 funny}}\\
+    \lr{\texttt{mt: Can’t grok funny}}
+    \RTL
+    برای کسانی که با «غریبه در غربت» نوشته روبرت هاینلین آشنا نیستند، باید بگویم که grok معادل مریخی فهمیدن است.
+
+    این اصطلاح به کشورهای دیگر راه نیافت. یک برنامه‌نویسِ آلمانی با سادگی تمام رفت که معنی grok را در لغتنامهٔ انگلیسی-آلمانی بیابد.
+\end{tcolorbox}

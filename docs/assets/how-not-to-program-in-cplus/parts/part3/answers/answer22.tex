@@ -1,0 +1,15 @@
+\section{}
+\paragraph{}\label{answer:22}
+مشکل این است که تابع \lr{\texttt{max}} ارجاعی به یک پارامتر برمی‌گرداند. پارامتر برابر \lr{\texttt{3+4}} است که یک عبارت می‌باشد. وقتی که \lr{\texttt{min}} فراخوانی می‌شود، آن چه که \lr{\texttt{C++}} واقعاً انجام می‌دهد این است:
+\begin{enumerate}
+    \item یک متغیر موقتی می‌سازد \lr{\texttt{(tmp1)}} و مقدار \lr{\texttt{1+2}} را به آن می‌دهد.
+    \item یک متغیر موقتی می‌سازد \lr{\texttt{(tmp2)}} و مقدار \lr{\texttt{3+4}} را به آن می‌دهد.
+    \item \lr{\texttt{max(tmp1, tmp2)}} را فراخوانی می‌کند.
+    \item تابع، یک ارجاع به \lr{\texttt{tmp2}} برمی‌گرداند.
+    \lr{\texttt{i = \&tmp2\\
+    tmp1 destroyed\\
+    tmp2 destroyed\\}}
+    \item اکنون متغیر \lr{\texttt{i}} ارجاعی است به هیچ چیز.
+\end{enumerate}
+
+مشکل از برگرداندن یک ارجاع به یک پارامتر سرچشمه می‌گیرد. این کار باعث ایجاد یک ارجاع سرگردان می‌شود.

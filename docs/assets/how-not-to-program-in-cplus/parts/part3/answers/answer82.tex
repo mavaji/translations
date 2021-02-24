@@ -1,0 +1,32 @@
+\section{}
+\paragraph{}\label{answer:82}
+برنامه‌نویس از نقطه‌ویرگول برای پایان اعلان \lr{\texttt{\#define}} استفاده کرده است. از آن جا که پیش‌پردازنده خیلی ملانقطی است، نقطه‌ویرگول جزیی از متن می‌شود. نتیجه این است که \lr{\texttt{USABLE}} بدین صورت تعریف می‌شود:
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+            8.5; -1.0;;
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+حال، مقدار‌دهی اولیه \lr{\texttt{text\_width}} تبدیل می‌شود به:
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+            double text_width = 8.5; -1.0;;
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+یا اگر درست توگذاری کنیم:
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+            double text_width = 8.5;
+            -1.0;
+            ;
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+حالا می‌توانیم مشکل خود را ببینیم. تا آن جا که ممکن است، به جای \lr{\texttt{\#define}} از \lr{\texttt{const}} استفاده کنید.

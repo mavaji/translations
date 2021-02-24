@@ -1,0 +1,53 @@
+\section[مقدار درست]{مقدار درست \protect\LTRfootnote{\lr{Good Value}} (راهنمایی \ref{hint:248}، جواب \ref{answer:57})}
+\paragraph{}\label{prog:38}
+این، قسمتی از یک برنامهٔ واضح است. خب، چه چیزی را واقعاً چاپ می‌کند؟
+
+\begin{LTR}
+    \noindent\lr{\texttt{File: main.cpp}}
+
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+         /************************************************
+         * test the check_for_even function. *
+         ************************************************/
+         #include <iostream>
+
+         int value = 21; // Value of the system size
+
+         // Checks global value for even or not.
+         extern void check_for_even(void);
+
+         int main(void)
+         {
+         	check_for_even();
+         	std::cout << "Value is " << value << '\n';
+         	return (o);
+         }
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+\begin{LTR}
+    \noindent\lr{\texttt{File: check.cpp}}
+
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+         #include <iostream>
+
+         // Value of the control system size
+         int value = 30;
+
+         /************************************************
+         * check_for_even -- Check to see if global *
+         * value is even. *
+         ************************************************/
+         void check_for_even(void)
+         {
+         	if ((value % 2) == 0)
+         		std::cout << "Ok\n";
+         	else
+         		std::cout << "Value problem\n";
+         }
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}

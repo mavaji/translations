@@ -1,0 +1,34 @@
+\section{}
+\paragraph{}\label{answer:4}
+برنامه‌نویس فکر می‌کرد که دو عبارت را درون \lr{\texttt{if}} قرار داده است ولی آکولادها را فراموش کرده بود. بنابراین عبارت:
+\begin{LTR}
+    %@formatter:off
+            \begin{lstlisting}[style=C++Style]
+                if (size > MAX)
+                std::cout << "Size is too large\n";
+                size = MAX;
+            \end{lstlisting}
+        %@formatter:on
+\end{LTR}
+در واقع به این صورت است:
+\begin{LTR}
+    %@formatter:off
+            \begin{lstlisting}[style=C++Style]
+                if (size > MAX)
+                    std::cout << "Size is too large\n";
+                size = MAX;
+            \end{lstlisting}
+        %@formatter:on
+\end{LTR}
+و آنچه که برنامه‌نویس باید می‌نوشت این بود:
+\begin{LTR}
+    %@formatter:off
+            \begin{lstlisting}[style=C++Style]
+                if (size > MAX)
+                {
+                    std::cout << "Size is too large\n";
+                    size = MAX;
+                }
+            \end{lstlisting}
+        %@formatter:on
+\end{LTR}

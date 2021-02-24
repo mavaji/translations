@@ -1,0 +1,97 @@
+% Default Compiler: txs:///xelatex
+% Default Bibliography Tool: BibTex
+
+\documentclass[10pt, a4paper]{book}
+\usepackage[table, svgnames, usenames,dvipsnames]{xcolor} \usepackage{array}
+\usepackage{titlesec}
+\usepackage[linktocpage=true,colorlinks,citecolor=blue,pagebackref=true]{hyperref}
+\usepackage[top=30mm, bottom=30mm, left=30mm, right=30mm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{tcolorbox}
+\usepackage{listings,lstautogobble}
+\usepackage{epsfig,graphicx,subfigure,amsthm,amsmath}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{hyphenat}
+\usepackage{setspace}
+\usepackage{pgffor}
+\makeatletter
+
+%\onehalfspacing
+\doublespacing
+
+\usepackage{xepersian}
+\settextfont[Scale=1]{IRNazanin}
+\defpersianfont\mfo[Scale=1]{IRNazanin}
+\setlatintextfont[Scale=0.8]{Doulos SIL}
+
+\renewcommand{\chaptername}{فصل}
+
+\titleformat
+{\chapter} % command
+[display] % shape
+{\bfseries\Large\itshape} % format
+{فصل \ \thechapter} % label
+{0.5ex} % sep
+{
+\rule{\textwidth}{1pt}
+\vspace{1ex}
+\centering
+} % before-code
+[
+\vspace{-0.5ex}%
+\rule{\textwidth}{0.3pt}
+] % after-code
+
+\DefaultMathsDigits
+
+\definecolor{customblue}{RGB}{235,241,245}
+\definecolor{light-gray}{gray}{0.95}
+\lstdefinestyle{C++Style}{%
+backgroundcolor=\color{customblue},
+breaklines=true,
+basicstyle=\scriptsize\ttfamily,
+keywordstyle=\color{blue},
+%commentstyle=\color{OliveGreen}\textit,
+commentstyle=\color{OliveGreen},
+stringstyle=\color{red},
+numbers=left,
+numberstyle={\tiny\lr},
+showspaces = false,
+showstringspaces = false,
+tabsize = 2,
+frame=single,
+xleftmargin=5pt,
+xrightmargin=3pt,
+language = C++,
+aboveskip = 20pt,
+rulecolor=\color{black},
+captiondirection=RTL,
+autogobble=true
+}
+
+\lstnewenvironment{C++Code}[1][]
+{%
+\lstset{style=C++Style, #1}%
+}{%
+}
+
+\begin{document}
+    \title{چگونه در C++ برنامه ننویسیم\\
+    یا\\
+    چرا 5986 = 2 + 2}
+    \author{استیو اُلین\\
+    ترجمهٔ وحید مواجی\\
+    }
+    \date{آذر ۱۳۸۴}
+    \frontmatter                            % only in book class (roman page #s)
+    \maketitle                              % Print title page.
+    \tableofcontents                        % Print table of contents
+    \mainmatter
+
+    \input{parts/part1/part1.tex}
+
+    \input{parts/part2/part2.tex}
+
+    \input{parts/part3/part3.tex}
+\end{document}

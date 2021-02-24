@@ -1,0 +1,44 @@
+\section{}
+\paragraph{}\label{answer:52}
+مشکل در خط زیر وجود دارد:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        flags |= CD_SIGNAL;
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+این عملیات در برابر سوئیچ‌های ریسمان، محافظت‌شده نیست. روی یک ماشین با دستورالعمل‌های پیچیده، کد اسمبلی این کد این گونه است:
+\begin{LTR}
+%@formatter:off
+    \begin{lstlisting}[style=C++Style]
+    ; 80x86 assembly
+    orb $2,flags
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+سوئیچ‌های ریسمان فقط در انتهای هر دستورالعمل ممکن است رخ دهند. بنابراین این عملیات روی ماشین خانواده \lr{\texttt{80x86}} دچار وقفه نمی‌شود. ولی روی یک ماشین \lr{\texttt{RISC}} مانند \lr{\texttt{Sparc}} این کد کمی فرق دارد:
+\LTR\noindent
+\lr{
+\begin{enumerate}
+\item \lr{\texttt{sethi \%hi(flags),\%o0 ; Get the address of the flags in \%o0,\%o1}}
+\item \lr{\texttt{sethi \%hi(flags),\%o1}}
+\item \lr{\texttt{ld [\%o1+\%lo(flags)],\%o2 ;\%o2 = contents of the variable flags}}
+\item \lr{\texttt{or \%o2,2,\%o1 ;\%o1 = The results of seeting the flag}}
+\item \lr{\texttt{st \%o1,[\%o0+\%lo(flags)] ;Store results in \%o0}}
+\end{enumerate}
+}
+\RTL
+اکنون، عبارت \lr{\texttt{C++}} وقفه‌پذیر است. علی‌الخصوص سناریوی زیر ممکن است رخ دهد:
+\begin{enumerate}
+\item برنامه اجرا شده و دستورالعمل 3 را کامل می‌کند. در این نقطه، مقدار پرچم‌ها در رجیستر \lr{\texttt{\%o2}} قرار دارد.
+\item یک سوئیچ ریسمان رخ می‌دهد.
+\item پردازهٔ دیگر، پرچم‌ها را دستکاری می‌کند.
+\item دوباره روی ریسمان قبلی سوئیچ می‌شود.
+\item مقدار قبلی پرچم‌ها در رجیستر \lr{\texttt{\%o2}} قرار دارد.
+\item بیت، مقداردهی شده و نتیجه ذخیره می‌شود. به دلیل این که مقدار قبلی پرچم‌ها را در خود داشت، هر تغییری که در ریسمان دیگر رخ دهد، به طور تصادفی از بین می‌رود.
+\end{enumerate}
+
+راه‌حل این مسأله این است که برای ممانعت از رخ دادن \lr{\texttt{task switch}} در حین یک عبارت، از قفل‌ها استفاده کنیم.

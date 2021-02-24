@@ -1,0 +1,21 @@
+\section{}
+\paragraph{}\label{answer:46}
+خروجی این است:
+\LTR\noindent
+\lr{\texttt{The double of 1 is 2\\
+The double of 2 is 3\\
+The double of 3 is 4\\
+The double of 4 is 5\\
+The double of 5 is 6}}
+\RTL
+به این دلیل که \lr{\texttt{DOUBLE(i+1)}} بسط می‌یابد به:
+\lr{\texttt{(i+1 * 2)}}
+
+وقتی \lr{\texttt{C++}} این را می‌بیند، 1 را در 2 ضرب کرده و \lr{\texttt{i}} را به آن اضافه می‌کند. این آن نتیجه‌ای نیست که مَدّنظر برنامه‌نویس بود. تا آنجا که ممکن است از توابع \lr{\texttt{inline}} به جای ماکروها استفاده کنید. همیشه در دو طرف پارامترهای ماکروها از \lr{\texttt{()}} استفاده کنید مثلاً:
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+            #define DOUBLE(x) ((x) * 2)
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}

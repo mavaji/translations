@@ -1,0 +1,35 @@
+\section[بی‌مقدار]{بی‌مقدار \protect\LTRfootnote{\lr{No Value}} (راهنمایی \ref{hint:118}، جواب \ref{answer:113})}
+\paragraph{}\label{prog:77}
+برنامهٔ زیر کامپایل نمی‌شود چون \lr{\texttt{value}} تعریف نشده است. ما هیچ وقت از متغیر \lr{\texttt{value}} استفاده نمی‌کنیم، پس مشکل چیست؟
+
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+         /************************************************
+         * double -- Print a double table for the *
+         * numbers 1 through 10. *
+         ************************************************/
+         #include <iostream>
+
+         /************************************************
+         * DOUBLE -- Macro to double the value of a *
+         * number. *
+         ************************************************/
+         #define DOUBLE (value) ((value) + (value))
+
+         int main()
+         {
+         	// Counter for the double list
+         	int counter;
+
+         	for (counter = 1; counter <= 10; ++counter)
+         	{
+         		std::cout << "Twice " << counter << " is " <<
+         		DOUBLE(counter) << '\n';
+         	}
+
+         	return (0);
+         }
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}

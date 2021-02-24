@@ -1,0 +1,58 @@
+\section[دقت غیر قابل باور]{دقت غیر قابل باور \protect\LTRfootnote{\lr{Unbelievable Accuracy}} (راهنمایی \ref{hint:352}، جواب \ref{answer:73})}
+\paragraph{}\label{prog:40}
+این برنامه طراحی شده تا دقت اعداد اعشاری را تشخیص دهد. ایدهٔ آن ساده است. مقادیر زیر را محاسبه کن تا جایی که اعداد با هم برابر شوند:
+\LTR\noindent
+\lr{\texttt{1.0 == 1.5 (1 + ½ or 1+ 1/21) (1.1 binary)}}\\
+\lr{\texttt{1.0 == 1.25 (1 + ¼ or 1 + 1/22) (1.01 binary)}}\\
+\lr{\texttt{1.0 == 1.125 (1 + 1/8 or 1+ 1/23) (1.001 binary)}}\\
+\lr{\texttt{1.0 == 1.0625 (1 + 1/16 or 1+ 1/24) (1.0001 binary)}}\\
+\lr{\texttt{1.0 == 1.03125 (1 + 1/32 or 1 + 1/25) (1.00001 binary)}}
+\RTL
+این کار به ما دقت محاسبات را می‌دهد. این برنامه روی یک کامپیوتر \lr{PC} و اعداد اعشاری 32 بیتی اجرا شد. خب، انتظار داریم چند رقم دودویی در یک عدد اعشاری 32 بیتی باشد؟ این برنامه جواب درست را به ما نمی‌دهد. چرا؟
+
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+         /************************************************
+         * accuracy test. *
+         * *
+         * This program figures out how many bits *
+         * accuracy you have on your system. It does *
+         * this by adding up checking the series: *
+         * *
+         * 1.0 == 1.1 (binary) *
+         * 1.0 == 1.01 (binary) *
+         * 1.0 == 1.001 (binary) *
+         * .... *
+         * *
+         * Until the numbers are equal. The result is *
+         * the number of bits that are stored in the *
+         * fraction part of the floating point number. *
+         ************************************************/
+         #include <iostream>
+
+         int main()
+         {
+         	/* two numbers to work with */
+         	float number1, number2;
+
+         	/* loop counter and accuracy check */
+         	int counter;
+
+         	number1 = 1.0;
+         	number2 = 1.0;
+         	counter = 0;
+
+         	while (number1 + number2 != number1) {
+         		++counter; // One more bit accurate
+
+         		// Turn numbers like 0.1 binary
+         		// into 0.01 binary.
+         		number2 = number2 / 2.0;
+         	}
+         	std::cout << counter << " bits accuracy.\n";
+         	return (0);
+         }
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}

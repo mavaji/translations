@@ -1,0 +1,16 @@
+\section{}
+\paragraph{}\label{answer:93}
+متغیرهای عضو به ترتیب اعلان، مقداردهی اولیه می‌شوند. در این صورت عبارات:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        ) : width(i_width),
+                height(i_height),
+                area(width*height)
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+به ترتیب اعلان اجرا می‌شوند. \lr{\texttt{1) area، 2) width، 3) height}}. این بدان معناست که \lr{\texttt{area}} با مقادیر نامعلوم \lr{\texttt{width}} و \lr{\texttt{height}} مقداردهی می‌شود و سپس \lr{\texttt{width}} و \lr{\texttt{height}} مقداردهی اولیه می‌شوند.
+
+توابع سازنده‌ای بنویسید که متغیرها به ترتیبی که اعلان می‌شوند، مقداردهی اولیه شوند. (اگر این کار را نکنید، کامپایلر این کار را برای شما می‌کند و باعث درهم‌ریختگی می‌شود). هیچ‌گاه از یک متغیر عضو برای مقداردهی اولیه دیگر متغیرهای عضو استفاده نکنید.

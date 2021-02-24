@@ -1,0 +1,34 @@
+\section[خطای فاحش]{خطای فاحش \protect\LTRfootnote{\lr{Gross Error}} (راهنمایی \ref{hint:275}، جواب \ref{answer:79})}
+\paragraph{}\label{prog:74}
+چرا برنامهٔ زیر در خط 16 یک خطای نحوی را گزارش می‌دهد؟ خط 16 چه مشکلی دارد؟
+
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+         /************************************************
+         * gross -- Print out a table of 1 to 10 gross. *
+         ************************************************/
+         // A Gross is a dozen - dozen
+         #define GROSS (12 ** 2)
+
+         #include <iostream>
+
+         int main()
+         {
+         	int i; // Index into the table
+
+         	for (i = 1; i <= 10; ++i)
+         	{
+         		std::cout << i << " gross is " <<
+         		(GROSS * i) << '\n';
+         	}
+
+         	return (0);
+         }
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+\begin{tcolorbox}
+    دو راه برای نوشتن برنامه‌های بدون اشکال وجود دارد ولی فقط سومی درست کار می‌کند.
+\end{tcolorbox}

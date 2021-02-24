@@ -1,0 +1,17 @@
+\section{}
+\paragraph{}\label{answer:65}
+ هر \lr{\texttt{put}} با یک \lr{\texttt{flush}} آمده است. این بدان معنی است که برای هر کاراکتر خروجی، یک فراخوانی سیستمی انجام شده است. فراخوانی‌های سیستمی بسیار پرهزینه هستند و زمان زیادی از \lr{\texttt{CPU}} را مصرف می‌کنند.
+
+به عبارت دیگر، با این که کتابخانهٔ \lr{\texttt{I/O}} به منظور \lr{\texttt{I/O}} بافرشده طراحی شده است، فراخوانی‌های بیش از حدِ \lr{\texttt{flush}}، مانند این است که از \lr{\texttt{I/O}} بافرنشده داریم استفاده می‌کنیم. ما نیاز داریم که در انتهای هر بلوک \lr{\texttt{flush}} انجام دهیم تا مطمئن شویم که سیستم راه دور، یک بلوک کامل را دریافت می‌کند. یعنی بلوک، نه کاراکتر. بنابراین می‌توانیم با پائین بردن \lr{\texttt{flush}} بعد از فرستادن بلوک، سیستم را تسریع بخشیم:
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+            for (i = 0; i < BLOCK_SIZE; ++i) {
+                int ch;
+                ch = in_file.get();
+                serial_out.put(ch);
+            }
+            serial_out.fflush();
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}

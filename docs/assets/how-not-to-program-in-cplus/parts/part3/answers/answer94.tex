@@ -1,0 +1,26 @@
+\section{}
+\paragraph{}\label{answer:94}
+در توابع \lr{\texttt{K\&R}}، اعلان پارامتر دقیقاً قبل از اولین آکولاد می‌آید. یعنی اعلان:
+\begin{LTR}
+%@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        int sum(i1, i2, i3)
+        {
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+سه پارامتر از نوع پیش‌فرض \lr{\texttt{(int)}} اعلان می‌کند. هر چیزی که بعد از آن باشد، یک متغیر محلی است. علی‌الخصوص،
+\begin{LTR}
+%@formatter:off
+\begin{lstlisting}[style=C++Style]
+int sum(i1, i2, i3)
+{
+    int i1; /* Local variable, not parameter */
+    int i2; /* Local variable, not parameter */
+    int i3; /* Local variable, not parameter */
+\end{lstlisting}
+%@formatter:on
+\end{LTR}
+
+نتیجه این است که به جای جمع کردن سه پارامتر، برنامه سه متغیر محلی که مقداردهی نشده‌اند را با هم جمع می‌کند. بنابراین تعجبی ندارد که چنین نتیجهٔ عجیب و غریبی می‌گیریم.

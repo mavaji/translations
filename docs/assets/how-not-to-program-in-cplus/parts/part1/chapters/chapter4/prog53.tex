@@ -1,0 +1,42 @@
+\section[سرگشتگی بیشینه]{سرگشتگی بیشینه \protect\LTRfootnote{\lr{Maximum Confusion}} (راهنمایی \ref{hint:289}، جواب \ref{answer:22})}
+\paragraph{}\label{prog:53}
+تابع \lr{\texttt{max}} ساده است، کد آزمون ساده است و جواب...، خب شما باید آنرا بیابید.
+
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+         /************************************************
+         * test_max -- Test the max function. *
+         ************************************************/
+         #include <iostream>
+
+         /************************************************
+         * max -- return the larger of two integers. *
+         * *
+         * Returns: *
+         * biggest of the two numbers. *
+         ************************************************/
+         const int &max(
+         	const int &i1, // A number
+         	const int &i2 // Another number
+         )
+         {
+         	if (i1 > i2)
+         	return (i1);
+         	return (i2);
+         }
+
+         int main()
+         {
+         	// I is the biggest of the two expression
+         	const int &i = max(1+2, 3+4);
+
+         	std::cout <<
+         		"The biggest expression is " <<
+         		i << std::endl;
+
+         	return (0);
+         }
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
