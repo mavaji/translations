@@ -1,0 +1,26 @@
+\section{}
+\paragraph{}\label{answer:55}
+ مشکل این جاست که در تابع مخرب، یک استثنا می‌اندازیم. وقتی برنامه به این خط می‌رسد:
+ \begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+    if (i3 < 0)
+        throw (problem("Bad data"));
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+کد استثنا، اجرا می‌شود و همهٔ متغیرهای محلی را از بین می‌برد. این امر شامل متغیر \lr{\texttt{a\_stack}} نیز می‌شود. وقتی \lr{\texttt{a\_stack}} از بین برود، تابع مخرب فراخوانی می‌شود:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        ~stack(void) {
+            if (count != 0) {
+                throw (problem("Stack not empty"));
+            }
+        }
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+تابع مخرب یک استثنا می‌اندازد. \lr{\texttt{C++}} دوست ندارد که درون یک استثنا، یک استثنا دیگر انداخته شود. وقتی این اتفاق می‌افتد، برنامه، تابع \lr{\texttt{terminate()}} را فراخوانی می‌کند. اگر می‌خواهید که دومین استثنا و دیگر موارد مشابه را بگیرید، از تابع استاندارد \lr{\texttt{set\_terminate}} استفاده کنید تا از مسائل غیرمنتظره جلوگیری کرده باشید. در توابع مخرب، استثنا نیندازید.

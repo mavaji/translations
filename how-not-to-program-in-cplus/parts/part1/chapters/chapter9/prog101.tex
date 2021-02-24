@@ -1,0 +1,45 @@
+\section[نقطهٔ بدون بازگشت]{نقطهٔ بدون بازگشت \protect\LTRfootnote{\lr{Point of No Return}} (راهنمایی \ref{hint:349}، جواب \ref{answer:5})}
+\paragraph{}\label{prog:101}
+چرا برنامهٔ زیر یک فایلِ درست را در یونیکس می‌نویسد و یک فایلِ اشتباه را در ویندوز؟ برنامه، 128 کاراکتر را می‌نویسد ولی نسخهٔ ویندوز شامل 129 بایت است. چرا؟
+
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+             /*************************************************
+             * Create a test file containing binary data. *
+             *************************************************/
+             #include <iostream>
+             #include <fstream>
+             #include <stdlib.h>
+
+             int main()
+             {
+            	// current character to write
+             	unsigned char cur_char;
+
+             	// output file
+             	std::ofstream out_file;
+
+             	out_file.open("test.out", std::ios::out);
+             	if (out_file.bad())
+             	{
+             		std::cerr << "Can not open output file\n";
+             		exit (8);
+             	}
+
+             	for (cur_char = 0;
+             		cur_char < 128;
+             		++cur_char)
+             	{
+             		out_file << cur_char;
+             	}
+             	return (0);
+             }
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+
+\begin{tcolorbox}
+    انسان جایزالخطاست. برای این که واقعاً کارها را خراب کنید به یک کامپیوتر نیاز دارید. برای این که به خراب کردن ادامه دهید به بوروکراسی احتیاج دارید.
+\end{tcolorbox}

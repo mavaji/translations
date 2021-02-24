@@ -1,0 +1,13 @@
+\section{}
+\paragraph{}\label{answer:36}
+مشکل این است که رشته‌ای که برمی‌گردانیم بدین صورت تعریف شده:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        15 // The name we are generating
+        16 std::string name;
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+این یک متغیر محلی است. زیربرنامه یک ارجاع به این رشته برمی‌گرداند ولی از آنجا که این یک متغیر محلی است، در پایانِ تابع، از بین می‌رود. یعنی وقتی از نتیجه استفاده می‌کنیم، متغیری که نتیجه را در خود داشت، از بین رفته است.

@@ -1,0 +1,34 @@
+\section[اِعمال نیرو]{اِعمال نیرو \protect\LTRfootnote{\lr{Zipping Along}} (راهنمایی \ref{hint:104}، جواب \ref{answer:104})}
+\paragraph{}\label{prog:102}
+روی بسیاری از سیستم‌های یونیکس، این برنامه کار می‌کند ولی روی \lr{MS-DOS} کار نمی‌کند. چرا؟
+
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+             /********************************************
+             * Check a couple of zip codes. *
+             ********************************************/
+             #include <iostream>
+
+             int main()
+             {
+             	// A couple of zip codes
+             	const int cleveland_zip = 44101;
+             	const int pittsburgh_zip = 15201;
+
+             	if (cleveland_zip < pittsburgh_zip)
+             	{
+             		std::cout <<
+             			"Cleveland < Pittsburgh (Wrong)\n";
+             	}
+             	else
+             	{
+             		std::cout <<
+             			"Pittsburgh < Cleveland (Right)\n";
+             	}
+
+             	return (0);
+             }
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}

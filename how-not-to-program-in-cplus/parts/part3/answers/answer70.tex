@@ -1,0 +1,40 @@
+\section{}
+\paragraph{}\label{answer:70}
+مشکل عبارت زیر است:
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+            54 while (
+            55 	(std::strcmp(cur_cmd->cmd, cmd) != 0) &&
+            56		cur_cmd != NULL)
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+این عبارت داده‌ای که \lr{\texttt{cur\_cmd->cmd}} به آن اشاره می‌کند را بررسی می‌کند، سپس بررسی می‌کند که آیا \lr{\texttt{cur\_cmd->cmd}} معتبر است یا نه. در برخی سیستم‌ها، برداشتن ارجاع به \lr{\texttt{NULL}} (که اگر در انتهای لیست باشیم این کار را می‌کنیم) باعث می‌شود که همه چیز از کار بیفتد.
+
+در \lr{\texttt{MS-DOS}} و دیگر سیستم‌های معیوب، هیچ محافظت از حافظه‌ای وجود ندارد، لذا برداشتن ارجاع به \lr{\texttt{NULL}} مجاز است البته شما نتایج عجیب و غریبی خواهید گرفت. ویندوزِ مایکروسافت این مشکل را حل کرد . اشاره‌گر به \lr{\texttt{NULL}} به یک \lr{\texttt{GPF\LTRfootnote{\lr{‫‪General‬‬ ‫‪Protection‬‬ ‫‪Fault‬‬}}}} می‌انجامد.
+
+حلقه باید بدین گونه نوشته شود:
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+            while (
+            (cur_cmd != NULL) &&
+            (std::strcmp(cur_cmd->cmd, cmd) != 0))
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+ ولی حتی این هم گول‌زننده است. این عبارت بستگی دارد به این که استاندارد \lr{\texttt{C++}} به درستی پیاده‌سازی شده باشد. استاندارد \lr{\texttt{C++}} می‌گوید که برای \lr{\texttt{\&\&}} اولین قسمت ارزیابی می‌شود. اگر اولین عبارت غلط باشد، از عبارت دوم صرف‌نظر می‌شود. برای اطمینانِ بیشتر، بهتر است این گونه بنویسیم:
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+            while (1) {
+                if (cur_cmd == NULL)
+                    break;
+                if (std::strcmp(cur_cmd->cmd, cmd) == 0)
+                    break;
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}

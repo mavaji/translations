@@ -1,0 +1,19 @@
+\section{}
+\paragraph{}\label{answer:27}
+مشکل این است که \lr{\texttt{"1"}} یک عدد صحیح است. عدد \lr{\texttt{"3"}} نیز یک عدد صحیح است. بنابراین \lr{\texttt{"1/3"}} یک تقسیم عدد صحیح است. لذا عبارت:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        12 result = 1/3; // Assign result something
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+یک تقسیم عدد صحیح 1 بر 3 را انجام می‌دهد. تقسیم‌های عدد صحیح، قسمت کسری جواب را قطع می‌کنند بنابراین نتیجه برابر صفر است. عدد صحیح \lr{\texttt{"0"}} به یک عدد ممیز شناور تبدیل شده و به عنوان نتیجه برگردانده می‌شود. برنامه‌نویس باید این گونه می‌نوشت:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        12 result = 1.0 / 3.0;// Assign result something
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}

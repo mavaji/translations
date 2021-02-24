@@ -1,0 +1,48 @@
+\section[خاموش]{خاموش \protect\LTRfootnote{\lr{Wordless}} (راهنمایی \ref{hint:294}، جواب \ref{answer:76})}
+\paragraph{}\label{prog:15}
+برنامهٔ زیر به منظور تشخیص این که یک کلمه، کلمهٔ کلیدی است یا نه، طراحی شده است. پس چرا کار نمی‌کند؟
+
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+             /************************************************
+             * test the keyword finding function: "keyword" *
+             ************************************************/
+             #include <cstring>
+             #include <iostream>
+
+             /************************************************
+             * keyword -- return true if a keyword found *
+             ************************************************/
+             bool keyword(
+             	const char word[] // The work to look for
+             )
+             {
+             	// A set of keywords
+             	static const char *key_list[] = {
+             		"bool",
+             		"int",
+             		"const",
+             		NULL
+             	};
+             	int i; // Index into the list
+
+             	// Look for the keyword
+             	for (i = 0; key_list[i] != 0; ++i) {
+             		if (std::strcmp(word, key_list[i]))
+             			return (true);
+             	}
+             	return (false);
+             }
+             int main()
+             {
+             	std::cout << "keyword(bool) = " <<
+             		keyword("bool") << '\n';
+
+             	std::cout << "keyword(sam) = " <<
+             		keyword("sam") << '\n';
+             	return (0);
+             }
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}

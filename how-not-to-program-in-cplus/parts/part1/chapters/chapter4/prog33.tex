@@ -1,0 +1,33 @@
+\section[پست‌فطرت‌ها]{پست‌فطرت‌ها \protect\LTRfootnote{\lr{Bad Characters}} (راهنمایی \ref{hint:124}، جواب \ref{answer:45})}
+\paragraph{}\label{prog:33}
+برنامهٔ زیر باید \lr{\texttt{ABC}} را به عنوان خروجی بدهد. ولی واقعاً چه کار می‌کند؟
+
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+         /************************************************
+         * Toy program to print three characters. *
+         ************************************************/
+         #include <iostream>
+
+         int main()
+         {
+         	//A character to be printed
+         	char ch = 'A';
+
+         	std::cout << ch; // Output A
+         	std::cout << ch+1; // Output B
+         	std::cout << ch+2; // Output C
+         	std::cout << std::endl;
+         	return (0);
+         }
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+\begin{tcolorbox}
+    \centering
+    قانون کمترین شگفتی
+
+    برنامه باید طوری رفتار کند که به کمترین میزان، کاربر را شگفت‌زده سازد.
+\end{tcolorbox}

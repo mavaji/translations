@@ -1,0 +1,23 @@
+\section{}
+\paragraph{}\label{answer:6}
+مشکل خط \lr{\texttt{6 void main()}} است. تابع \lr{\texttt{main()}} یک تابع \lr{\texttt{void}} نیست. یک \lr{\texttt{int}} است. این تابع یک کد خروجی را به سیستم‌عامل برمی‌گرداند. یک \lr{\texttt{"Hello World"}} درست می‌توانست بدین شکل باشد:
+
+\begin{LTR}
+    %@formatter:off
+            \begin{lstlisting}[style=C++Style]
+                 /************************************************
+                 * The "standard" hello world program. *
+                 ************************************************/
+                 #include <ostream>
+
+                 int main()
+                 {
+                     std::cout << "Hello world!\n";
+                     return (0);
+                 }
+            \end{lstlisting}
+        %@formatter:on
+\end{LTR}
+وقتی همسر من برنامه‌نویسی را شروع کرد، این اولین برنامه‌ای بود که یاد گرفت (نسخه \lr{\texttt{void}}). من \lr{\texttt{void}} را به \lr{\texttt{int}} تغییر دادم و او تمرین خود را تحویل داد. معلم حل‌تمرین، این را غلط گرفت و به حالت اولیه برگرداند.
+
+نیازی به گفتن نیست که من از این قضیه راضی نبودم و یک نامه خیلی تحقیرآمیز برای او نوشته و متذکر شدم که \lr{\texttt{main}} از نوع \lr{\texttt{int}} بوده است و با یادآوری استاندارد \lr{\texttt{C++}} حرف خودم را به اثبات رساندم. او به نامه من جواب داد و خیلی هم خوشحال شده بود.

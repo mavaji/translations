@@ -1,0 +1,41 @@
+\section{}
+\paragraph{}\label{answer:59}
+مشکل این جاست که ما یک تابع سازنده کپی تعریف نکرده‌ایم. وقتی این اتفاق می‌افتد، \lr{\texttt{C++}} یکی برای شما تعریف می‌کند و معمولاً این کار را خوب انجام نمی‌دهد. تابع سازنده کپی این گونه تعریف شده است:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        var_array(const var_array &other) {
+            data = other.data;
+            size = other.size;
+        }
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+تابع سازنده کپی، برای ساختن یک کپی از \lr{\texttt{an\_array}} برای تابع \lr{\texttt{store\_it}} فراخوانی می‌شود. اشاره‌گر به داده، کپی می‌شود. وقتی \lr{\texttt{var\_array::\textasciitilde var\_array}} در انتهای \lr{\texttt{pushy}} فراخوانی می‌شود، داده را به \lr{\texttt{heap}} برمی‌گرداند. وقتی در انتهای \lr{\texttt{main}}، \lr{\texttt{var\_array::\textasciitilde var\_array}} فراخوانی می‌شود، همان داده را به \lr{\texttt{heap}} برمی‌گرداند. از آن جا که یک مکان حافظه را دو بار پاک می‌کنیم، نتیجه این می‌شود که یک \lr{\texttt{heap}} خراب داریم.
+
+همیشه به نحوی، تابع سازنده کپی را تعریف کنید. سه راهِ عمدهٔ این کار این می‌باشد:
+\begin{enumerate}
+    \item به طور ضمنی آن را تعریف کنید.
+    \item اگر می‌خواهید که هیچ کس قادر به فراخوانی آن نباشد، آن را بصورت \lr{\texttt{private}} تعریف کنید:
+    \begin{LTR}
+        %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+            var_array (const var_array &);
+            // No one can copy var_arrays
+        \end{lstlisting}
+        %@formatter:on
+    \end{LTR}
+
+    \item اگر از پیش‌فرض استفاده می‌کنید، آن را در توضیح بیاورید:
+    \begin{LTR}
+        %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+            // Copy Constructor defaults
+        \end{lstlisting}
+        %@formatter:on
+    \end{LTR}
+
+\end{enumerate}
+
+بدین ترتیب، به بقیه می‌گویید که برنامهٔ شما را چطور بخوانند و لذا پیش‌فرض \lr{\texttt{C++}} مشکل‌زا نخواهد بود.

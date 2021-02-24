@@ -1,0 +1,34 @@
+\section[کوتاه‌مدت، تجدیدنظرشده]{کوتاه‌مدت، تجدیدنظرشده \protect\LTRfootnote{\lr{Short Time Revisited}} (راهنمایی \ref{hint:107}، جواب \ref{answer:89})}
+\paragraph{}\label{prog:109}
+برنامه‌نویس سعی کرد تا مشکلِ برنامهٔ \ref{prog:108} را با تغییر عملوندهای ضرب به متغیرها حل کند. ولی حلقه هنوز هم خیلی کوتاه است. جریان از چه قرار است؟
+
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+             /***********************************************
+             * bit_delay -- Delay one bit time for *
+             * serial output. *
+             * *
+             * Note: This function is highly system *
+             * dependent. If you change the *
+             * processor or clock it will go bad. *
+             ***********************************************/
+             void bit_delay(void)
+             {
+             	int i; // Loop counter
+             	int result; // Result of the multiply
+
+             	// Factors for multiplication
+             	int factor1 = 12;
+             	int factor2 = 34;
+
+             	// We know that 1863 multiples
+             	// delay the proper amount
+             	for (i = 0; i < 1863; ++i)
+             	{
+             		result = factor1 * factor2;
+             	}
+             }
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}

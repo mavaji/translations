@@ -1,0 +1,42 @@
+\section[خطای صفر]{خطای صفر \protect\LTRfootnote{\lr{Zero Error}} (راهنمایی \ref{hint:50}، جواب \ref{answer:20})}
+\paragraph{}\label{prog:28}
+برنامهٔ زیر طراحی شده است تا یک آرایه را صفر کند. پس چرا کار نمی‌کند؟ آیا \lr{\texttt{memset}} خراب شده است؟
+
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+         /************************************************
+         * zero_array -- Demonstrate how to use memset *
+         * to zero an array. *
+         ************************************************/
+         #include <iostream>
+         #include <cstring>
+
+         int main()
+         {
+         	// An array to zero
+         	int array[5] = {1, 3, 5, 7, 9};
+
+         	// Index into the array
+         	int i;
+
+         	// Zero the array
+         	memset(array, sizeof(array), '\0');
+
+         	// Print the array
+         	for (i = 0; i < 5; ++i)
+         	{
+         		std::cout << "array[" << i << "]= " <<
+         		array[i] << std::endl;
+         	}
+         	return (0);
+         }
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+\begin{tcolorbox}
+    از یک راهنمای فرترن برای کامپیوترهای \lr{Xerox}:
+
+    هدف اصلی عبارت \lr{\texttt{DATA}} این است که به ثوابت، اسم اختصاص دهد. به جای این که هر بار بجای \lr{π} بنویسیم \lr{\texttt{3.141592653589793}}، می‌توانیم با عبارت \lr{\texttt{DATA}}، این مقدار را به متغیر \lr{\texttt{PI}} اختصاص دهیم و به جای آن عدد طولانی از آن استفاده کنیم. این کار همچنین تغییر دادن برنامه را آسان‌تر می‌کند چون ممکن است مقدار \lr{π} عوض شود.
+\end{tcolorbox}

@@ -1,0 +1,21 @@
+\section{}
+\paragraph{}\label{answer:98}
+مسأله این است که کلاس با عملگر \lr{\texttt{new}}ی \lr{\texttt{C++}} تخصیص نیافته است بلکه در عوض از عملگرِ قدیمی \lr{\texttt{malloc}} متعلق به \lr{\texttt{C}} استفاده می‌کند. این کار فضای لازم برای کلاس را می‌سازد بدون این که تابع سازنده را فراخوانی کند. بعد برای تیر خلاص زدن، \lr{\texttt{memset}} فراخوانی می‌شود تا کلاس را صفر کند.
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        result =
+            (struct info *)malloc(sizeof(struct info));
+        memset(result, '\0', sizeof(result));
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+آنچه که برنامه‌نویس می‌بایست بنویسد، این است:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        result = new info;
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}

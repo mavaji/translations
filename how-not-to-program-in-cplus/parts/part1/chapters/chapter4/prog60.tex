@@ -1,0 +1,47 @@
+\section[نوهٔ اسامی عجیب]{نوهٔ اسامی عجیب \protect\LTRfootnote{\lr{Grandson of Weird Names}} (راهنمایی \ref{hint:361}، جواب \ref{answer:36})}
+\paragraph{}\label{prog:60}
+خب، ما دوباره برنامهٔ خود را درست کرده‌ایم و حالا از رشته‌های \lr{\texttt{C++}} استفاده می‌کنیم. ولی باز هم درست کار نمی‌کند. چرا؟
+
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+         #include <iostream>
+         #include <string>
+
+         /************************************************
+         * tmp_name -- return a temporary file name *
+         * *
+         * Each time this function is called, a new *
+         * name will be returned. *
+         * *
+         * Returns *
+         * String containing the name. *
+         ************************************************/
+         std::string &tmp_name()
+         {
+         	// The name we are generating
+         	std::string name;
+
+         	// Sequence number for last digit
+         	static int sequence = 0;
+
+         	++sequence; // Move to the next file name
+
+         	name = "tmp";
+
+         	// Put in the squence digit
+         	name += static_cast<char>(sequence + '0');
+
+         	return(name);
+         }
+
+         int main()
+         {
+         	std::string name1 = tmp_name();
+
+         	std::cout <<"Name1: " << name1 << '\n';
+         	return(0);
+         }
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}

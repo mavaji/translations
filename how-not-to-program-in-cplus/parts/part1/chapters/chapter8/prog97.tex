@@ -1,0 +1,35 @@
+\section[دوباره سلام]{دوباره سلام \protect\LTRfootnote{\lr{Hello Again}} (راهنمایی \ref{hint:214}، جواب \ref{answer:50})}
+\paragraph{}\label{prog:97}
+برنامهٔ زیر چه چیزی را چاپ می‌کند؟
+
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+             /************************************************
+             * Normally I would put in a comment explaining *
+             * what this program is nominally used for. *
+             * But in this case I can figure out no *
+             * practical use for this program. *
+             ************************************************/
+             #include <stdio.h>
+             #include <unistd.h>
+             #include <stdlib.h>
+
+             int main()
+             {
+             	printf("Hello ");
+             	fork();
+             	printf("\n");
+             	exit(0);
+             }
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+\begin{tcolorbox}
+    شکسپیر، سؤالی قدیمی پرسیده است: \lr{"To be or not to be?"} علوم کامپیوتر جواب آن را به ما داده است:
+    \LTR
+    \lr{\texttt{0x2B | \textasciitilde0x2B = 0xFF}}
+    \RTL
+    وقتی این طنز را به افراد غیرفنی می‌گویم با تعجب به من می‌نگرند. افراد فنی، دقیقه‌ای فکر می‌کنند و سپس می‌گویند: «حق با توست». فقط یک نفر از صد نفر واقعاً می‌خندد.
+\end{tcolorbox}

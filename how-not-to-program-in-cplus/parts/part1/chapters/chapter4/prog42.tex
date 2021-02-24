@@ -1,0 +1,47 @@
+\section[کمی دردسر بیشتر]{کمی دردسر بیشتر \protect\LTRfootnote{\lr{A Bit More Trouble}} (راهنمایی \ref{hint:180}، جواب \ref{answer:19})}
+\paragraph{}\label{prog:42}
+ما با تغییر خط 19، برنامه \ref{prog:41} را درست کردیم. خب پس حالا برنامه کار می‌کند، درست است؟ البته که نه. برنامه‌ای که درست کار کند، جایش در این کتاب نیست.
+
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+         /************************************************
+         * bit test -- Test the routine to print out *
+         * the bits in a flag. *
+         ************************************************/
+         #include <iostream>
+         /************************************************
+         * bit_out -- print a graphical *
+         * representation of each bit in a *
+         * 16 bit word. *
+         * *
+         * For example: *
+         * 0×55AF will print -X-X-X-XX-X-XXXX *
+         ************************************************/
+         void bit_out(
+         	const short int value // Value to print
+         )
+         {
+         	// The bit we are printing now
+         	short int bit = (1<<15);
+
+         	int count; // Loop counter
+
+         	for (count = 0; count < 16; ++count)
+         	{
+         		if ((bit & value) != 0)
+         			std::cout << "X";
+         		else
+         			std::cout << '-';
+         		bit >>= 1;
+         	}
+         	std::cout << std::endl;
+         }
+         int main()
+         {
+         	bit_out(0×55AF);
+         	return (0);
+         }
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}

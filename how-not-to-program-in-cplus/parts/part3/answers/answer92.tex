@@ -1,0 +1,55 @@
+\section{}
+\paragraph{}\label{answer:92}
+مشکل این است که یک سوئیچ ریسمان می‌تواند در هر زمانی رخ دهد. وقتی که \lr{\texttt{count > 0}} است، \lr{\texttt{Writer}} یک کاراکتر از بافر بیرون می‌آورد. \lr{\texttt{reader}} دو کار انجام می‌دهد:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        ++count; // We've got a new character
+        *in_ptr = ch;// Store the character
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+ولی یک سوئیچ ریسمان ممکن است بین این دو مرحله رخ دهد. بنابراین، این سناریو ممکن است رخ دهد:
+\begin{itemize}
+    \item \lr{\texttt{reader: ++count;// We've got a new character}}
+    \item سوئیچ ریسمان به \lr{\texttt{writer}}.
+    \item \lr{\texttt{writer}}: بررسی این که \lr{\texttt{count > 0}} برقرار است.
+    \item \lr{\texttt{writer}}: کاراکتر را بگیرد.
+    \item سوئیچ ریسمان به \lr{\texttt{reader}}.
+    \item \lr{\texttt{reader}}: بعد از این که \lr{\texttt{writer}}، کاراکتر را خواند، آنرا در بافر قرار دهد.
+\end{itemize}
+
+یک راه‌حل برای این کار این است که ترتیب مراحل:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        ++count; // We've got a new character
+        *in_ptr = ch;// Store the character
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+را تغییر دهیم به:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        *in_ptr = ch;// Store the character
+        ++count; // We've got a new character
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+اتکا به توالی دستورالعمل‌ها برای محافظت از داده‌های مشترک، مشکل و گول‌زننده است. بسیار بهتر و ساده‌تر است که به مدیر پُشته بگویید که چه زمانی دارید عبارات وقفه‌ناپذیر را انجام می‌دهید. در \lr{\texttt{pthreads}} این کار به وسیله یک قفل \lr{\texttt{mutex}} انجام‌پذیر است:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        pthread_mutex_lock(&buffer_mutex);
+
+        ++count;
+        *in_ptr = ch;
+        ++in_ptr;
+
+        pthread_mutex_unlock(&buffer_mutex);
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}

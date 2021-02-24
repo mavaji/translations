@@ -1,0 +1,34 @@
+\section[ضد دیباگ]{ضد دیباگ \protect\LTRfootnote{\lr{Debug Resistant}} (راهنمایی \ref{hint:147}، جواب \ref{answer:84})}
+\paragraph{}\label{prog:98}
+برنامه‌نویس، ایدهٔ زیرکانه‌ای داشت. او یک دسته‌کد را درون یک عبارت \lr{\texttt{if(debugging)}} قرار داد. او سپس برنامه را اجرا کرد و وقتی خروجیِ دیباگ را می‌خواست، از دیباگِرِ تعاملی برای تغییر \lr{\texttt{debugging}} از \lr{\texttt{0}} به \lr{\texttt{1}} استفاده کرد. ولی این برنامه او را شگفت‌زده ساخت.
+
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+             /***********************************************
+             * Code fragment to demonstrate how to use the *
+             * debugger to turn on debugging. All you *
+             * have to do is put a breakpoint on the "if" *
+             * line and change the debugging variable. *
+             ***********************************************/
+             extern void dump_variables(void);
+
+             void do_work()
+             {
+             	static int debugging = 0;
+
+            	if (debugging)
+             	{
+             		dump_variables();
+             	}
+             	// Do real work
+             }
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+\begin{tcolorbox}
+    ایجاد فایل در سیستم‌عاملِ یونیکس آسان است. لذا کاربران تمایل دارند تعداد زیادی فایل را با استفاده از فضای زیاد فایل‌ها بسازند. گفته می‌شد که تنها چیز استاندارد در همه سیستم‌های یونیکس، پیغامی است که به کاربران می‌گوید فایل‌های خود را پاک کنند.
+    \LTR
+    \rl{راهنمای اولیهٔ مدیریت یونیکس}
+\end{tcolorbox}

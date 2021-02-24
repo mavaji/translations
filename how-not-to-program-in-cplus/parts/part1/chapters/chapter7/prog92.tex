@@ -1,0 +1,49 @@
+\section[اسم‌بازی]{اسم‌بازی \protect\LTRfootnote{\lr{Name-Game}} (راهنمایی \ref{hint:244}، جواب \ref{answer:3})}
+\paragraph{}\label{prog:92}
+برنامهٔ زیر چه چیزی را چاپ می‌کند؟
+
+\begin{LTR}
+    \noindent{File: first.cpp}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+             #include <string>
+
+             // The first name of the key person
+             std::string first_name = "Bill";
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+\begin{LTR}
+    \noindent{File: last.cpp}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+             /***********************************************
+             * print_name -- Print the name of a person. *
+             ***********************************************/
+             #include <iostream>
+             #include <string>
+
+             // The first name
+             extern std::string first_name;
+
+             // The last name
+             std::string last_name = "Jones";
+
+             // The full name
+             std::string full_name =
+             first_name + " " + last_name;
+
+             int main()
+             {
+             	// Print the name
+             	std::cout << full_name << std::endl;
+             	return (0);
+             }
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+\begin{tcolorbox}
+    بعد از چند رقم اعشار، دیگر کسی توجه نمی‌کند.
+\end{tcolorbox}

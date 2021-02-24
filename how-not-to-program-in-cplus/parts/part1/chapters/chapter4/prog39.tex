@@ -1,0 +1,39 @@
+\section[تجدید نظر در ریاضیات دبستانی]{تجدید نظر در ریاضیات دبستانی \protect\LTRfootnote{\lr{Kindergarten Arithmetic Revision}} (راهنمایی \ref{hint:113}، جواب \ref{answer:54})}
+\paragraph{}\label{prog:39}
+همهٔ ما می‌دانیم که 2 = 1 + 1 و 3 = 1 + 1 + 1. همچنین 1/3 + 1/3 + 1/3 برابر 3/3 یا 1 است. برنامهٔ کامپیوتری زیر این مسأله را به تصویر می‌کشد. ولی به دلایلی درست کار نمی‌کند. چرا؟
+
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+         /************************************************
+         * test out basic arithmetic that we learned in *
+         * first grade. *
+         ************************************************/
+         #include <iostream>
+
+         int main()
+         {
+         	float third = 1.0 / 3.0; // The value 1/3
+         	float one = 1.0; // The value 1
+
+         	if ((third+third+third) == one)
+         	{
+         		std::cout <<
+         		"Equal 1 = 1/3 + 1/3 + 1/3\n";
+         	}
+         	else
+         	{
+         		std::cout <<
+         		"NOT EQUAL 1 != 1/3 + 1/3 + 1/3\n";
+         	}
+         	return (0);
+         }
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+\begin{tcolorbox}
+    دانش‌آموزی اولین برنامهٔ بیسیک خود را نوشته بود و با دستور \lr{\texttt{RUN}} می‌خواست آن را اجرا کند. کامپیوتر یک سری عدد نشان داد و به سرعت صفحه بالا می‌رفت و اعداد بیشتری نمایش داده می‌شد و دانش‌آموزِ بیچاره نمی‌توانست آنها را بخواند.
+
+    دانش‌آموز دقیقه‌ای فکر کرد و از خود پرسید: «آیا اگر می‌نوشتم \lr{\texttt{WALK}}، آرام‌تر اجرا می‌شد؟».
+\end{tcolorbox}

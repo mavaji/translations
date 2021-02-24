@@ -1,0 +1,78 @@
+\section[مشکل استاد]{مشکل استاد \protect\LTRfootnote{\lr{Teacher's Problem}} (راهنمایی \ref{hint:139}، جواب \ref{answer:102})}
+\paragraph{}\label{prog:2}
+من برنامه‌نویسی \lr{\texttt{C}} درس می‌دهم. این اولین سوالِ اولین آزمونی است که برگزار کرده‌ام. ایدهٔ کار ساده بود: می‌خواستم ببینم آیا دانش‌آموزان فرق بین متغیر \lr{\texttt{automatic}}
+\begin{LTR}
+    %@formatter:off
+            \begin{lstlisting}[style=C++Style]
+                16 int i = 0;
+            \end{lstlisting}
+            %@formatter:on
+\end{LTR}
+و متغیر \lr{\texttt{static}}
+\begin{LTR}
+    %@formatter:off
+            \begin{lstlisting}[style=C++Style]
+                26 static int i = 0;
+            \end{lstlisting}
+            %@formatter:on
+\end{LTR}
+را می‌دانند یا نه. با این حال بعد از آزمون، مجبور شدم مسألهٔ شرم‌آوری را بپذیرم: اگر خودم در این آزمون شرکت می‌کردم، به این سؤال، اشتباه جواب می‌دادم. لذا مجبور شدم به دانش‌آموزان بگویم: «برای اینکه نمرهٔ کامل سوال 1 را بگیرید، دو راه وجود دارد. راه اول این است که جواب درست داده باشید و راه دوم این است که جوابی را که من فکر می‌کردم درست است، داده باشید».
+
+بنابراین، جواب درست کدام است؟
+
+\begin{LTR}
+    %@formatter:off
+            \begin{lstlisting}[style=C++Style]
+                 /***********************************************
+                 * Test question: *
+                 * 	What does the following program print? *
+                 * *
+                 * Note: The question is designed to tell if *
+                 * the student knows the difference between *
+                 * automatic and static variables. *
+                 ***********************************************/
+                 #include <stdio.h>
+                 /***********************************************
+                 * first -- Demonstration of automatic *
+                 * variables. *
+                 ***********************************************/
+                 int first(void)
+                 {
+                 	int i = 0; // Demonstration variable
+
+                	 return (i++);
+                 }
+                 /***********************************************
+                 * second -- Demonstration of a static *
+                 * variable. *
+                 ***********************************************/
+                 int second(void)
+                 {
+                 	static int i = 0; // Demonstration variable
+
+                 	return (i++);
+                 }
+
+                 int main()
+                 {
+                 	int counter; // Call counter
+
+                 	for (counter = 0; counter < 3; counter++)
+                 		printf("First %d\n", first());
+
+                	for (counter = 0; counter < 3; counter++)
+                 		printf("Second %d\n", second());
+
+                 	return (0);
+                 }
+            \end{lstlisting}
+            %@formatter:on
+\end{LTR}
+
+\begin{tcolorbox}
+    کلیسایی، تازه اولین کامپیوتر خود را خریده بود و کارکنان آن مشغول یادگیریِ روشِ استفاده از آن بودند. منشیِ کلیسا تصمیم گرفت متنی را تنظیم کند تا در مراسم ترحیم استفاده شود. جایی که اسمِ شخصِ مورد نظر باید تغییر می‌کرد، کلمه \lr{<name>} بود. وقتی مراسم ترحیم قرار بود انجام شود، او این کلمه را با اسم واقعی شخص عوض می‌کرد.
+
+    روزی، دو مراسمِ ترحیم بود. اولی برای بانویی به اسم مریم و دومی برای شخصی به اسم ادنا. لذا منشی، هرجا که \lr{<name>} بود را با «مریم» عوض کرد. تا این جا همه چیز به خوبی پیش رفت. سپس او برای دومین مراسم ترحیم، تمام «مریم» ها را با «ادنا» عوض کرد. این، یک اشتباه بود.
+
+    کشیش را تصور کنید که قسمتی از «اعمال رسولان» را می‌خواند و می‌بیند که نوشته «زاده شد از ادنای باکره».
+\end{tcolorbox}

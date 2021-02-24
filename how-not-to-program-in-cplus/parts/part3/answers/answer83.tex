@@ -1,0 +1,10 @@
+\section{}
+\paragraph{}\label{answer:83}
+مسأله این است که \lr{\texttt{buffer}} یک متغیر محلی است. این بدان معناست که در انتهای فراخوانی تابع، از بین می‌رود. متأسفانه، \lr{\texttt{printf}} این را نمی‌داند و بنابراین همچنان درونش داده می‌ریزد. عبارت \lr{\texttt{printf("That's all\textbackslash n");}} می‌خواهد هم‌چنان از متغیر محلی استفاده کند. برای حل این مشکل، \lr{\texttt{buffer}} را به صورت \lr{\texttt{static}} تعریف کنید:
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+            static char buffer[BUFSIZ];
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}

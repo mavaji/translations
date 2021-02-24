@@ -1,0 +1,40 @@
+\section{}
+\paragraph{}\label{answer:71}
+\begin{enumerate}
+    \item تنظیم
+
+    در برخی ماشین‌ها باید اعداد صحیح به صورت 2 بایتی یا 4 بایتی باشند. در برخی ماشین‌ها لازم نیست. \lr{\texttt{C++}} برای تنظیم کردن این قاعده، از لایی‌گذاری استفاده می‌کند. لذا روی یک ماشین، ساختار به صورت زیر خواهد بود:
+    \begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+        struct data {
+            char flag; // 1 byte
+            long int value; // 4 bytes
+        };
+        \end{lstlisting}
+    %@formatter:on
+    \end{LTR}
+
+    که کلاً 5 بایت می‌شود. روی یک ماشین دیگر، ممکن است این گونه باشد:
+    \begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+            struct data {
+                char flag; // 1 byte
+                char pad[3]; // 3 bytes (automatic padding)
+                long int value; // 4 bytes
+            };
+        \end{lstlisting}
+    %@formatter:on
+    \end{LTR}
+
+    که کلاً 8 بایت می‌شود.
+
+    \item ترتیب بایت‌ها
+
+    برخی ماشین‌ها، اعداد صحیح بزرگ را با ترتیب بایتی \lr{\texttt{ABCD}} می‌نویسند. برخی دیگر از \lr{\texttt{DCBA}} استفاده می‌کنند. این امر، مانعِ قابلیت‌حمل می‌شود.
+
+    \item اندازهٔ عدد صحیح
+
+    ماشین‌های 64 بیتی هم وجود دارند. یعنی روی برخی سیستم‌ها یک \lr{\texttt{long int}} برابر 64 بیت است نه 32 بیت.
+\end{enumerate}

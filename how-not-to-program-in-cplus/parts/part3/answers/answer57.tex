@@ -1,0 +1,41 @@
+\section{}
+\paragraph{}\label{answer:57}
+مسأله این جاست که دو اعلان متغیر وجود دارد:
+\begin{LTR}
+    File: main.cpp
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        int value = 20;
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+\begin{LTR}
+    File: check.cpp
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        int value = 30;
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+این بدین معناست که \lr{\texttt{value}} برابر 20 یا 30 است. ولی کدام یک؟ نتیجه وابسته به کامپایلر است. اگر می‌خواهید که \lr{\texttt{value}} نسبت به فایل‌هایی که در آنها تعریف شده است، محلی باشد، باید آن را \lr{\texttt{static}} تعریف کنید:
+\begin{LTR}
+    File: main.cpp
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        static int value = 20;
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+\begin{LTR}
+    File: check.cpp
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        static int value = 30;
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+و کارِ بهتر این است که اسامیِ متفاوتی به آنها بدهید.

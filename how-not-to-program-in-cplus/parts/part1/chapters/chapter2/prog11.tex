@@ -1,0 +1,39 @@
+\section[دو فایل، خیلی زیاد است]{دو فایل، خیلی زیاد است \protect\LTRfootnote{\lr{Two Files Is Too Many}} (راهنمایی \ref{hint:269}، جواب \ref{answer:7})}
+\paragraph{}\label{prog:11}
+این هم روش دیگری برای انجام دادن \lr{\texttt{"Hello World!"}} و اشتباه در آن است. مشکل کجاست؟
+
+\begin{LTR}
+    \noindent{File: sub.cpp}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+             // The string to print
+             char str[] = "Hello World!\n";
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+\begin{LTR}
+    \noindent{File: main.cpp}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+             /************************************************
+             * print string -- Print a simple string. *
+             ************************************************/
+             #include <iostream>
+
+             extern char *str; // The string to print
+
+             int main()
+             {
+             	std::cout << str << std::endl;
+             	return (0);
+             }
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+\begin{tcolorbox}
+    برنامه‌نویسی که من او را می‌شناسم فکر می‌کرد که راهی را یافته است که چگونه هیچ وقت کارتِ پارک تهیه نکند. سه گزینهٔ او برای پلاک ماشین این‌ها بودند: \lr{0O0O0O}، \lr{O0O0O0}، و \lr{I1I1I1}. او تصور می‌کرد که اگر مأمورِ پلیسی ماشین را ببیند، حرف \lr{O} و رقم \lr{0} بسیار شبیهِ هم می‌باشند و تقریباً غیرممکن است که شماره پلاک را درست یادداشت کند.
+
+    متأسفانه نقشهٔ او نگرفت. مأمور راهنمایی‌رانندگی که پلاک را صادر می‌کرد سردرگم شد و شماره پلاک را بصورت \lr{OOOOOO} صادر کرد.
+\end{tcolorbox}

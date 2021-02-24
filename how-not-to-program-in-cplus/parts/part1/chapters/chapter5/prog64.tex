@@ -1,0 +1,32 @@
+\section[\lr{π} در چشمان شما]{\lr{π} در چشمان شما \protect\LTRfootnote{\lr{π in Your Eye}} (راهنمایی \ref{hint:198}، جواب \ref{answer:10})}
+\paragraph{}\label{prog:64}
+فایل \lr{\texttt{math.h}} ثابت \lr{\texttt{M\_PI}} را تعریف می‌کند. وقتی این ثابت را چاپ می‌کنیم، چه مقداری را دریافت می‌داریم؟
+
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+         /************************************************
+         * PI -- Test program to see verify that *
+         * the value of "pi" in math.h is *
+         * correct. *
+         ************************************************/
+         /* math.h defines M_PI */
+         #include <math.h>
+         #include <stdio.h>
+
+         int main()
+         {
+         	printf("pi is %d\n", M_PI);
+         	return (0);
+         }
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+\begin{tcolorbox}
+    یک نفر در \lr{Caltech}، برنامه‌ای نوشته بود تا وقتی شما وارد سیستم می‌شوید، یک پیغام خوش‌آمدگویی را نمایش دهد. آن، برنامهٔ باهوشی بود؛ قسمتی از برنامه، \lr{account} نویسنده برنامه را مورد بررسی قرار می‌داد که آیا نسخهٔ جدیدتری از برنامه آماده است یا نه. اگر بود، برنامه، خودش را با نسخهٔ جدیدتر جایگزین می‌ساخت.
+
+    روزی نویسندهٔ برنامه، فارغ‌التحصیل شد و \lr{account} او پاک شد. برنامه این امر را به عنوان یک خطا در نظر گرفت و یک پیغام را نمایش داد:
+    \LTR\noindent
+    \lr{\texttt{?LGNPFB Program fall down and go boom.}}
+\end{tcolorbox}

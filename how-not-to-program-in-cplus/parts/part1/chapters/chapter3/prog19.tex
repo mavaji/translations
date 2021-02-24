@@ -1,0 +1,40 @@
+\section[متهم ردیف اول]{متهم ردیف اول \protect\LTRfootnote{\lr{Prime Suspect}} (راهنمایی \ref{hint:354}، جواب \ref{answer:67})}
+\paragraph{}\label{prog:19}
+این یک برنامهٔ ساده است که اعداد اول بین 2 تا 9 را پیدا می‌کند. الگوریتم استفاده شده بسیار ساده است ولی با این حال انتظار می‌رود که درست کار کند، پس چه چیزی دارد واقعاً اتفاق می‌افتد؟
+
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+             /************************************************
+             * prime -- A very dump program to check to see *
+             * if the numbers 2-9 are prime. *
+             ************************************************/
+             #include <iostream>
+
+             int main()
+             {
+             	int i; // Number we are checking
+
+             	for (i = 2; i < 10; ++i) {
+             		switch(i) {
+             			case 2:
+             			case 3:
+             			case 5:
+             			case 7:
+             				std::cout << i << " is prime\n";
+             				break;
+             			default:
+             				std::cout << i <<
+             					" is not prime\n";
+             			break;
+             		}
+             	}
+             	return (0);
+             }
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+\begin{tcolorbox}
+    کامپیوترِ مؤسسهٔ رفاه اجتماعی در واشنگتن، سن افراد را به صورت دورقمی ذخیره می‌کرد. سنِ بانویی برای سیستم خیلی زیاد بود. وقتی او 100 سالش شد، کامپیوتر سن او را به صورت 00 ذخیره کرد و 101 بصورت 01 ذخیره شد. این امر زیاد مشکل‌ساز نبود تا این که او به سن 107 سالگی رسید و دولت یک مأمور آموزش و پرورش به خانهٔ او فرستاد تا بررسی کند که چرا او در کلاس اول ثبت نام نکرده است.
+\end{tcolorbox}

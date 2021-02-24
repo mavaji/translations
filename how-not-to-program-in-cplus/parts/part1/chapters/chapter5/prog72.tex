@@ -1,0 +1,33 @@
+\section[بینش بی‌انتها]{بینش بی‌انتها \protect\LTRfootnote{\lr{No End in Sight}} (راهنمایی \ref{hint:15}، جواب \ref{answer:63})}
+\paragraph{}\label{prog:72}
+این برنامهٔ ساده برای کپی کردنِ ورودیِ استاندارد به خروجیِ استاندارد است. این یکی از اولین برنامه‌های مرتبط با \lr{I/O} است که یک دانشجو می‌نویسد.
+
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+         /************************************************
+         * copy -- Copy stdin to stdout. *
+         ************************************************/
+         #include <stdio.h>
+
+         int main()
+         {
+         	// Character to copy
+         	char ch;
+
+         	while ((ch = getchar()) != EOF)
+         	{
+         		putchar(ch);
+         	}
+         	return (0);
+         }
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+\begin{tcolorbox}
+    دو راه برای طراحی نرم‌افزار وجود دارد. یک راه این است که آن را آن قدر ساده سازیم که آشکارا هیچ ایرادی نداشته باشد و راه دیگر این است که آن را آن قدر پیچیده سازیم که هیچ ایرادِ آشکاری نداشته باشد.
+
+    \LTR
+    \rl{س. ا. ر. هوار}
+\end{tcolorbox}

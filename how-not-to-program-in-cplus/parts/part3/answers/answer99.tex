@@ -1,0 +1,19 @@
+\section{}
+\paragraph{}\label{answer:99}
+عبارت \lr{\texttt{out\_file << ch}} کاراکتری به خروجی نمی‌فرستد. بدون توجه به اسم آن، متغیر \lr{\texttt{ch}} از نوع عدد صحیح است. نتیجه این است که عدد صحیح در خروجی چاپ می‌شود. به همین دلیل است که فایل خروجی، پر از عدد صحیح است. این حالتی است که در آن، تشخیص خودکار نوع پارامترهای خروجی در \lr{\texttt{C++}} پا در کفش شما می‌گذارد. عبارت قدیمی \lr{\texttt{printf}} متعلق به \lr{\texttt{C}} کارها را به درستی انجام می‌دهد:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        printf("%c", ch);
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+ولی در \lr{\texttt{C++}} باید عمل \lr{\texttt{cast}} انجام دهید تا جوابِ درست بگیرید:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        out_file << static_cast<char>(ch);
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}

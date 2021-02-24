@@ -1,0 +1,11 @@
+\section{}
+\paragraph{}\label{answer:33}
+برنامه چاپ می‌کند:
+\LTR\noindent
+\lr{\texttt{First: John\\
+Last: Smith\\
+Hello: John\\
+Smith\\
+}}
+\RTL
+مشکل این جاست که \lr{\texttt{fgets}} یک خط و از جمله \lr{\texttt{newline}} را دریافت می‌کند. بنابراین وقتی اولین اسم خوانده می‌شود به صورت \lr{\texttt{John\textbackslash n}} است. همین اتفاق برای \lr{\texttt{Smith}} می‌افتد و درنتیجه این خروجیِ مسخره را دریافت می‌کنیم.

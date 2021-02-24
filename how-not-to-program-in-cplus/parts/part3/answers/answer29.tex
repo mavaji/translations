@@ -1,0 +1,11 @@
+\section{}
+\paragraph{}\label{answer:29}
+پیش‌پردازنده، سینتکس \lr{\texttt{C++}} را نمی‌فهمد. وقتی \lr{\texttt{TOTAL}} را به صورت \lr{\texttt{37+33}} تعریف می‌کنیم، دقیقاً و لفظ‌به‌لفظ برابر \lr{\texttt{37+33}} است نَه برابر \lr{\texttt{70}}. ماکروی \lr{\texttt{AREA}} به صورت \lr{\texttt{37+33*10}} تعریف شده است. تقدم عملگرها فرصت را غنیمت شمرده و جواب اشتباه می‌دهد. تا آن جا که ممکن است از ثوابت به جای ماکروها استفاده کنید. در دو طرف \lr{\texttt{\#define}}هایی که چیزی غیر از یک عدد ساده را تعریف می‌کنند همیشه پرانتز قرار دهید. مثال:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        // Total top size
+        #define TOP_TOTAL (TOP_PART1 + TOP_PART2)
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}

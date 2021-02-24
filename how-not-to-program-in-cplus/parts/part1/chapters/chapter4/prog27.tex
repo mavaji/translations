@@ -1,0 +1,36 @@
+\section[«و» و «وو»]{«و» و «وو» \protect\LTRfootnote{\lr{"and" and "and and"}} (راهنمایی \ref{hint:351}، جواب \ref{answer:17})}
+\paragraph{}\label{prog:27}
+این برنامه طراحی شده است تا بررسی کند که آیا دو عدد، مخالفِ صفر می‌باشند یا نه. مشکل اینجاست که برنامه‌نویس زیاد از مختصرنویسی استفاده کرده است و یک جای کار ایراد دارد:
+
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+         /************************************************
+         * if_test -- Simple test of the if statement. *
+         ************************************************/
+         #include <iostream>
+
+         int main()
+         {
+         	int i1 = 12; // A number
+         	int i2 = 3; // Another number
+
+        	if (i1 & i2)
+        		std::cout << "Both numbers are non-zero\n";
+         	else
+         		std::cout << "At least one number is zero\n";
+         	return (0);
+         }
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+\begin{tcolorbox}
+    یک منشی یادداشتی را فراهم کرده بود و نمی‌توانست آن را ذخیره کند. «آیا فضای کافی برای ذخیره دارید؟»، سؤالی بود که کارشناس کامپیوتر از او پرسید.
+
+    منشی جواب داد: «آه البته، پیغامی دریافت می‌کنم که می‌گوید \lr{\texttt{Disk space OK}}».
+
+    کارشناس کامپیوتر از بالای سر او نگاه کرد و مطمئن شد که پیغام \lr{\texttt{Disk space: OK}} واقعاً وجود دارد.
+
+    سپس او چند فایل را پاک کرد و پیغام تبدیل شد به \lr{\texttt{Disk space: 4K}}. بعد از پاک کردن چند فایل دیگر، پیغام تبدیل شد به \lr{\texttt{Disk space: 32K}} و منشی می‌توانست یادداشت خود را ذخیره کند.
+\end{tcolorbox}

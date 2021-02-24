@@ -1,0 +1,41 @@
+\section[دور ریختن آشغال]{دور ریختن آشغال \protect\LTRfootnote{\lr{Takin Out the Trash}} (راهنمایی \ref{hint:129}، جواب \ref{answer:9})}
+\paragraph{}\label{prog:106}
+ما یک پورت ورودیِ نگاشت‌شده به حافظه داریم که \lr{\texttt{in\_port\_ptr}} اشاره‌گر آن است. دستگاه می‌تواند تا سه کاراکتر را بافر کند. برای مقداردهی اولیهٔ دستگاه، باید بافر را خالی کنیم و چیزهای به‌دردنخور قدیمی را دور بریزیم. این آن چیزی است که تابع زیر قرار است انجام دهد. ولی برخی مواقع کار نمی‌کند. چرا؟
+
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+             /***********************************************
+             * clear port -- Clear the input port. *
+             ***********************************************/
+             // Input register
+             char *in_port_ptr = (char *)0xFFFFFFE0;
+
+             // Output register
+             char *out_port_ptr = (char *)0xFFFFFFE1;
+
+             /***********************************************
+             * clear_input -- Clear the input device by *
+             * reading enough characters to empty the *
+             * buffer. (It doesn't matter if we read *
+             * extra, just so long as we read enough.)*
+             ***********************************************/
+             void clear_input(void)
+             {
+             	char ch; // Dummy character
+
+             	ch = *in_port_ptr; // Grab data
+             	ch = *in_port_ptr; // Grab data
+             	ch = *in_port_ptr; // Grab data
+             }
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+\begin{tcolorbox}
+    \centering
+    قانونِ اولِ بهینه‌سازیِ برنامه\\
+    آن را انجام نده.\\
+    قانونِ دومِ بهینه‌سازیِ برنامه\\
+    باز هم آن را انجام نده.
+\end{tcolorbox}

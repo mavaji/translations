@@ -1,0 +1,50 @@
+\section{}
+\paragraph{}\label{answer:39}
+مسأله این است که بهینه‌ساز، باهوش است. او می‌فهمد که ما می‌خواهیم نتیجهٔ \lr{\texttt{factor1*factor2;}} را درون حلقه \lr{\texttt{for}} محاسبه کنیم. اگر ما این عبارت را به بیرون حلقهٔ \lr{\texttt{for}} انتقال دهیم، جواب فرقی نمی‌کند ولی همه چیز سریع‌تر می‌شود. لذا نسخهٔ بهینه‌شدهٔ این برنامه، عمل ضرب را فقط یک بار انجام می‌دهد:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        17 int register1 = factor1 * factor2;
+        18 // We know that 1863 multiplies
+        19 // delay the proper amount
+        20 for (i = 0; i < 1863; ++i)
+        21 {
+        22 	result = register1;
+        23 }
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+برای حل این مشکل، باید \lr{\texttt{factor}} خود را به صورت \lr{\texttt{volatile}} تعریف کنیم.
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+         /************************************************
+         * bit_delay -- Delay one bit time for *
+         * serial output. *
+         * *
+         * Note: This function is highly system *
+         * dependent. If you change the *
+         * processor or clock it will go bad. *
+         *************************************************/
+         void bit_delay(void)
+         {
+         	int i; // Loop counter
+         	volatile int result;// Result of the multiply
+
+         	// Factors for multiplication
+         	volatile int factor1 = 12;
+         	volatile int factor2 = 34;
+
+         	// We know that 1863 multiples delay
+         	// the proper amount
+         	for (i = 0; i < 1863; ++i)
+         	{
+         		result = factor1 * factor2;
+         	}
+         }
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+چیزهایی مثل این است که برنامه‌نویسی تعبیه‌شده\LTRfootnote{\lr{Embedded}} را ساده می‌سازد.

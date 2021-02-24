@@ -1,0 +1,261 @@
+\section[سرعت می‌کُشد]{سرعت می‌کُشد \protect\LTRfootnote{\lr{Speed Kills}} (راهنمایی \ref{hint:305}، جواب \ref{answer:56})}
+\paragraph{}\label{prog:94}
+فراخوانی توابع \lr{\texttt{new}} و \lr{\texttt{delete}} هزینه‌بر هستند. اگر بخواهید برنامهٔ خود را تسریع ببخشید و بدانید که چه کار دارید می‌کنید می‌توانید آنها را بازنویسی\LTRfootnote{\lr{Override}} کنید و \lr{\texttt{new}} و \lr{\texttt{delete}} مخصوصِ کلاسِ خود را ایجاد نمایید. این کاری است که برنامه‌نویس انجام داده است. الگوریتم تخصیص، بسیار ساده است، ولی به طریقی حافظه خراب می‌شود. چرا؟
+
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+             /***********************************************
+             * bit_test -- Test out our new high speed *
+             * bit_array. *
+             ***********************************************/
+             #include <iostream>
+             #include <memory.h>
+
+             // The size of a fast bit_array.
+             // (Private to fast bit array)
+             const int BIT_ARRAY_MAX = 64; // Size in bits
+
+             // Number of bits in a byte
+             const int BITS_PER_BYTE = 8;
+             /************************************************
+             * fast_bit_array -- A bit array using fast *
+             * allocate technology. *
+             * *
+             * Member functions: *
+             * get -- Get an element from the *
+             * array. *
+             * set -- Set the value of an element *
+             * in the array. *
+             * *
+             * new -- used to quickly allocate a bit *
+             * array. *
+             * delete -- used to quickly deallocate *
+             * a bit array. *
+             ************************************************/
+             class fast_bit_array
+             {
+             	protected:
+             		// Array data
+             		unsigned char
+             		data[BIT_ARRAY_MAX/BITS_PER_BYTE];
+
+             	public:
+             		fast_bit_array(void)
+             		{
+             			memset(data, '\0', sizeof(data));
+             		}
+             		// Destructor defaults
+             	private:
+             		// No copy constructor
+             		fast_bit_array(const fast_bit_array &);
+
+             		// No assignment operator
+             		fast_bit_array & operator =
+             			(const fast_bit_array &);
+             	public:
+             		// Set the value on an item
+             		void set(
+             			// Index into the array
+             			const unsigned int index,
+
+             			// Value to put in the array
+             			const unsigned int value
+             		)
+             		{
+             			// Index into the bit in the byte
+             			unsigned int bit_index = index % 8;
+
+             			// Byte in the array to use
+             			unsigned int byte_index = index / 8;
+
+             			if (value)
+             			{
+             				data[byte_index] |=
+             					(1 << bit_index);
+             			}
+             			else
+             			{
+             				data[byte_index] &=
+             					~(1 << bit_index);
+             			}
+             		}
+             		// Return the value of an element
+             		int get(unsigned int index)
+             		{
+             			// Index into the bit in the byte
+             			unsigned int bit_index = index % 8;
+             			// Byte in the array to use
+             			unsigned int byte_index = index / 8;
+
+             			return (
+             				(data[byte_index] &
+             				(1 << bit_index)) != o);
+             		}
+             		// Allocate a new fast_bit_array
+             		void *operator new(const size_t);
+
+             		// Delete a fast bit array.
+             		void operator delete(void *ptr);
+             };
+
+             /************************************************
+             * The following routines handle the local *
+             * new/delete for the fast_bit_array. *
+             ************************************************/
+             // Max number of fast_bit_arrays we can use at once
+             const int N_FAST_BIT_ARRAYS = 30;
+
+             // If true, the bit array slot is allocated
+             // false indicates a free slot
+             static bool
+             bit_array_used[N_FAST_BIT_ARRAYS] = {false};
+
+             // Space for our fast bit arrays.
+             static char
+             bit_array_mem[N_FAST_BIT_ARRAYS]
+             [sizeof(fast_bit_array)];
+
+             // Handle new for "fast_bit_array".
+             // (This is much quicker than the
+             // system version of new)
+             /************************************************
+             * fast_bit_array -- new *
+             * *
+             * This is a high speed allocation routine for *
+             * the fast_bit_array class. The method used *
+             * for this is simple, but we know that only *
+             * a few bit_arrays will be allocated. *
+             * *
+             * Returns a pointer to the new memory. *
+             ************************************************/
+             void *fast_bit_array::operator new(const size_t)
+             {
+             	int i; // Index into the bit array slots
+
+             	// Look for a free slot
+             	for (i = 0; i < N_FAST_BIT_ARRAYS; ++i)
+             	{
+             		if (!bit_array_used[i])
+             		{
+             			// Free slot found, allocate the space
+             			bit_array_used[i] = true;
+             			return(bit_array_mem[i]);
+             		}
+             	}
+             	std::cout << "Error: Out of local memory\n";
+             	exit (8);
+             }
+
+             /************************************************
+             * fast_bit_array -- delete *
+             * *
+             * Quickly free the space used by a *
+             * fast bit array. *
+             ************************************************/
+             void fast_bit_array::operator delete(
+             	void *ptr // Pointer to the space to return
+             )
+             {
+             	int i; // Slot index
+
+             	for (i = 0; i < N_FAST_BIT_ARRAYS; ++i)
+             	{
+             		// Is this the right slot
+             		if (ptr == bit_array_mem[i])
+             		{
+             			// Right slot, free it
+             			bit_array_used[i] = false;
+             			return;
+             		}
+             	}
+             	std::cout <<
+             		"Error: Freed memory we didn't have\n";
+             	exit (8);
+             }
+
+
+             /************************************************
+             * safe_bit_array -- A safer bit array. *
+             * *
+             * Like bit array, but with error checking. *
+             ************************************************/
+             class safe_bit_array : public fast_bit_array
+             {
+             	public:
+             		// Sequence number generator
+             		static int bit_array_counter;
+
+             		// Our bit array number
+             		int sequence;
+
+             		safe_bit_array(void)
+             		{
+             			sequence = bit_array_counter;
+             			++bit_array_counter;
+             		};
+             		// Destructor defaults
+             	private:
+             		// No copy constructor
+             		safe_bit_array(const safe_bit_array &);
+
+             		// No assignment operator
+             		safe_bit_array & operator = (
+             				const safe_bit_array &);
+             	public:
+             		// Set the value on an item
+             		void set(
+             			// Where to put the item
+             			const unsigned int index,
+             			// Item to put
+             			const unsigned int value
+             		)
+             		{
+             			if (index >= (BIT_ARRAY_MAX-1))
+             			{
+             				std::cout <<
+             					"Bit array set error "
+             					"for bit array #"
+             					<< sequence << "\n";
+             				exit (8);
+             			}
+             			fast_bit_array::set(index, value);
+             		}
+             		// Return the value of an element
+             		int get(unsigned int index)
+             		{
+             			if (index >= (BIT_ARRAY_MAX-1))
+             			{
+             				std::cout <<
+             					"Bit array get error "
+             					"for bit array #"
+             					<< sequence << "\n";
+             				exit (8);
+             			}
+             			return (fast_bit_array::get(index));
+             		}
+             };
+
+             // Sequence information
+             int safe_bit_array::bit_array_counter = 0;
+
+             int main()
+             {
+             	// Create a nice new safe bit array
+             	safe_bit_array *a_bit_array =
+             	new safe_bit_array;
+
+             	a_bit_array->set(5, 1);
+             	// Return the bit_array to the system
+             	delete a_bit_array;
+             	return (0);
+             }
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+\begin{tcolorbox}
+    یک تکنولوژیِ سطح‌بالا از جادو قابل تمییز نیست.
+    \LTR
+    \rl{آرتور س. کلارک}
+\end{tcolorbox}

@@ -1,0 +1,33 @@
+\section{}
+\paragraph{}\label{answer:34}
+در انتهای عبارت \lr{\texttt{for}} یک نقطه‌ویرگول اضافی وجود دارد:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        for (index = 1; index <= 10; ++index);
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+این بدین معناست که \lr{\texttt{for}} مطلقاً کاری نمی‌کند. برنامهٔ درست‌توگذاری‌شده این است:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        for (index = 1; index <= 10; ++index);
+        std::cout << index << " squared " <<
+                (index * index) << '\n';
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+یا اگر کمی توضیح به آن اضافه کنیم، این شکلی می‌شود:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        for (index = 1; index <= 10; ++index)
+            /* Do nothing */;
+        std::cout << index << " squared " <<
+            (index * index) << '\n';
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+می‌توانیم دریابیم که \lr{\texttt{std::cout}} درونِ حلقهٔ \lr{\texttt{for}} نیست.

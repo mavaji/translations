@@ -1,0 +1,23 @@
+\section{}
+\paragraph{}\label{answer:88}
+مشکل در ماکروی زیر است:
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+            #define SQR(x) ((x) * (x))
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+که وقتی با \lr{\texttt{SQR(++number)}} فراخوانی می‌شود، بسط می‌یابد به
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+            ((++number) * (++number))
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+این عبارت، \lr{\texttt{number}} را دو بار افزایش می‌دهد، به جای یک باری که مدنظر برنامه‌نویس بود. بدتر این که کامپایلر می‌تواند روی ترتیب اجرای عملیات مختلف تصمیم بگیرد. بنابراین، نتیجهٔ این عبارت وابسته به کامپایلر است.
+
+به جای ماکروهای پارامتردار از توابع \lr{\texttt{inline}} استفاده کنید.

@@ -1,0 +1,16 @@
+\section{}
+\paragraph{}\label{answer:37}
+مسأله این است که کاراکتر \lr{\texttt{\textbackslash}} به عنوان یک کاراکتر گریز\LTRfootnote{\lr{Escape Character}} استفاده می‌شود. لذا \lr{\texttt{\textbackslash n}} یک خط جدید است. \lr{\texttt{\textbackslash new}} نیز برابر \lr{\texttt{<newline>ew}} است. بنابراین رشته \lr{\texttt{\textbackslash root\textbackslash new\textbackslash table}} در واقع بدین صورت است:
+\LTR\noindent
+\lr{\texttt{"<return>oot<newline>ew<tab>able"}}
+\RTL
+آن چه که برنامه‌نویس واقعاً می‌خواست این بود:
+ٰ\begin{LTR}
+     %@formatter:off
+     \begin{lstlisting}[style=C++Style]
+         const char name[] = "\\root\\new\\table"; // DOS path
+     \end{lstlisting}
+     %@formatter:on
+\end{LTR}
+
+این قاعده به \lr{\texttt{\#include}} اسم فایل‌ها اعمال نمی‌شود لذا \lr{\texttt{\#include "\textbackslash usr\textbackslash include\textbackslash table.h"}} درست کار می‌کند.

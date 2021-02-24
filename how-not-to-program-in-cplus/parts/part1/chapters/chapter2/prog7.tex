@@ -1,0 +1,41 @@
+\section[مجذور نادرست]{مجذور نادرست \protect\LTRfootnote{\lr{The Crooked Square}} (راهنمایی \ref{hint:103}، جواب \ref{answer:90})}
+این یک برنامهٔ کوتاه برای محاسبه و نمایش مجذور اعداد یک تا پنج است. به اندازهٔ کافی ساده است، پس کجای آن غلط است؟
+
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+             /************************************************
+             * squares -- Print the squares of the numbers *
+             * from 1 to 5. *
+             ************************************************/
+             #include <iostream>
+
+             int main()
+             {
+             	// An array for the squares
+             	int array[5];
+
+             	int i; // Index into the array
+
+             	for (i = 1; i <= 5; ++i) {
+             		array[i] = i*i;
+             	}
+
+             	for (i = 1; i <= 5; ++i) {
+             		std::cout << i << " squared is " <<
+             			array[i] << '\n';
+             	}
+             	return (0);
+             }
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+\begin{tcolorbox}
+    \centering
+    کنار اتاق کامپیوتر یک شرکت آمریکایی پیدا شد:
+
+    \lr{ACHTUNG! ALLES LOOKENSPEEPERS!}
+
+    \small\lr{Das computermachine ist nicht fuer gefingerpoken und mittengrabben. Ist easy schnappen der springenwerk, blowenfusen und poppencorken mit spitzensparken. Ist nicht fuer gewerken bei das dumpkopfen. Das rubber-necken sichtseeren keepen das cotten-pickenen hans in das pockets muss; relaxen und watchen das blinkenlichten.}
+\end{tcolorbox}

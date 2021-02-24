@@ -1,0 +1,30 @@
+\section[کوتاه‌مدت]{کوتاه‌مدت \protect\LTRfootnote{\lr{Short Time}} (راهنمایی \ref{hint:342}، جواب \ref{answer:16})}
+\paragraph{}\label{prog:108}
+برنامه‌نویس نیاز داشت تا یک تأخیر کوتاه در برنامه‌اش ایجاد کند. او فهمید که اگر 1863 عملِ ضرب را انجام دهد، به تأخیرِ موردنظر می‌رسد. این حقیقت به زیربرنامهٔ زیر منجر شد. ولی تحت بعضی شرایط، این تابع کار نمی‌کند. چرا؟
+
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+             /*************************************************
+             * bit_delay -- Delay one bit time for *
+             * serial output. *
+             * *
+             * Note: This function is highly system *
+             * dependent. If you change the *
+             * processor or clock it will go bad. *
+             *************************************************/
+             void bit_delay(void)
+             {
+             	int i; // Loop counter
+             	int result; // Result of the multiply
+
+             	// We know that 1863 multiplies delay
+             	// the proper amount
+             	for (i = 0; i < 1863; ++i)
+             	{
+             		result = 12 * 34;
+             	}
+             }
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}

@@ -1,0 +1,23 @@
+\section{}
+\paragraph{}\label{answer:20}
+آرگومان‌های \lr{\texttt{memset}} اینها هستند:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        memset(
+            void *ptr,// Pointer to the data
+            int value,// Value to set
+            size_t size// Number of bytes to fill
+        );
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+در این حالت، \lr{\texttt{value}} برابر \lr{\texttt{sizeof(array)}} است و تعداد بایت‌هایی که باید پُر شود برابر 0 است. از آنجا که \lr{\texttt{size=0}} است، هیچ کاری انجام نمی‌شود. برنامه‌نویس باید اینگونه می‌نوشت:
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+              memset(array, '\0', sizeof(array));
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}

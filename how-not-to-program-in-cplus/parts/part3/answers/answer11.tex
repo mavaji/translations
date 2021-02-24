@@ -1,0 +1,12 @@
+\section{}
+\paragraph{}\label{answer:11}
+یک کاراکتر، 8 بیت دارد که از 0 تا 7 شماره‌گذاری شده‌اند. این بیت‌ها را می‌توان با اعداد \lr{\texttt{(1<<0)}} تا \lr{\texttt{(1<<7)}} نشان داد. شمارهٔ بیت 8 نداریم لذا عبارت:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        privs |= P_BACKUP; // P_BACKUP = (1 << 8)}
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+کاری نمی‌کند، چون بیتی در خارج از محدودهٔ کاراکتر را مقداردهی می‌کند. نتیجه این است که فقط امتیاز مدیریت، مقداردهی می‌شود.

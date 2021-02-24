@@ -1,0 +1,39 @@
+\section{}
+\paragraph{}\label{answer:63}
+مسأله این است که \lr{\texttt{getchar}} یک \lr{\texttt{int}} برمی‌گرداند. ما داریم مقدار آن را به یک کاراکتر می‌دهیم. برخی سیستم‌ها، کاراکترها را به عنوان کاراکترهای بدون علامت درنظر می‌گیرند. نتیجه این است که وقتی به \lr{\texttt{EOF(-1)}} برسیم، سیستم این کار را می‌کند:
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+            ch = (unsigned char)(-1)
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+یا \lr{\texttt{ch=0xFF}}. سپس \lr{\texttt{0xFF}} را با \lr{\texttt{-1}} مقایسه کرده (که با هم برابر نیستند) و از حلقه خارج نمی‌شود. این برنامه یک فاجعهٔ ادبی است. هدف هر برنامه‌نویس \lr{\texttt{C++}} باید نوشتن یک برنامهٔ روشن و شفاف باشد. این برنامه با این هدف نوشته شد که فشرده باشد. یک برنامهٔ خیلی بهتر می‌توانست اینگونه باشد:
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+             /************************************************
+             * copy -- Copy stdin to stdout. *
+             ************************************************/
+             #include <stdio.h>
+
+             int main()
+             {
+
+            	while (1)
+             	{
+             		int ch; // Character to copy
+
+             		ch = getchar();
+
+             		if (ch == EOF)
+             			break;
+
+             		putchar(ch);
+            	 }
+             	return (0);
+             }
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}

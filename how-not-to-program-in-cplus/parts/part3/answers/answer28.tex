@@ -1,0 +1,39 @@
+\section{}
+\paragraph{}\label{answer:28}
+استفاده از تابع \lr{\texttt{scanf}} بسیار گول‌زننده است. در این برنامه عبارت:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        22 scanf("%c %d", &oper, &value);
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+یک کاراکتر و یک عدد صحیح می‌گیرد. دفعهٔ بعدی که \lr{\texttt{scanf}} فراخوانی شود، یک کاراکتر و عدد صحیح دیگر می‌خواند. پس کاراکتر بعدی چیست؟ بگذارید به یک اجرای نمونه نگاه کنیم:
+\lr{\texttt{
+\% calc\\
+Enter operator and value:+ 5\\
+Total: 5\\
+Enter operator and value:+ 10\\
+Bad operator entered\\
+Total: 5\\
+Enter operator and value:Bad operator entered\\
+Total: 5\\
+Enter operator and value:q\\
+Bad operator entered\\
+Total: 5\\
+Enter operator and value:q\\
+}}
+در خط اول می‌نویسیم: \lr{\texttt{+5}}
+
+بعد از اولین فراخوانیِ \lr{\texttt{scanf}}، اشاره‌گرِ ورودی درست قبل از خط جدید و درست بعد از \lr{\texttt{5}} است. \lr{\texttt{scanf}} بعدی سعی می‌کند تا عملگر را بخواند و یک خط جدید دریافت می‌کند. به خواندن ادامه می‌دهد و به جای یک عدد، به یک \lr{\texttt{+}} برمی‌خورد. نتیجهٔ کار بسیار گیج‌کننده است.
+
+برای اینکه فریب \lr{\texttt{scanf}} را نخورید، من یک راه به شما پیشنهاد می‌کنم. همیشه از ترکیبی از \lr{\texttt{fgets}} و \lr{\texttt{sscanf}} استفاده کنید:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        fgets(line, sizeof(line), stdin);
+        sscanf(line, "%c %d", &operator, &value);
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}

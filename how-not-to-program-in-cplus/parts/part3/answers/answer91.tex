@@ -1,0 +1,28 @@
+\section{}
+\paragraph{}\label{answer:91}
+مسأله این است که در عبارت
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        result=result/*divisor; /* Do divide */;
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+اولین \lr{\texttt{/*}} (آن که در وسط عبارت قرار دارد) یک توضیح را آغاز می‌کند؛ یک عمل تقسیم انجام نمی‌دهد. لذا این عبارت معادل است با:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        result = result /* a very big comment */;
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+در دو طرف عملگرها، فاصله قرار دهید. این کار نه تنها از مشکلات جلوگیری می‌کند بلکه خواندن برنامه را آسان‌تر می‌سازد.
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        result=result / *divisor; /* Do divide */;
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}

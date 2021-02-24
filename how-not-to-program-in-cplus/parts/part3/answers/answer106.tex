@@ -1,0 +1,12 @@
+\section{}
+\paragraph{}\label{answer:106}
+مشکل در عبارت زیر است:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        char prev_ch = '\0';
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+از آنجا که \lr{\texttt{prev\_ch}} یک متغیر \lr{\texttt{automatic}} است، این متغیر در ابتدای هر حلقه ایجاد و مقداردهی اولیه می‌شود. این بدان معناست که برای اولین \lr{\texttt{if}}، متغیر \lr{\texttt{prev\_ch}} همیشه مقدار \lr{\texttt{'\textbackslash 0'}} را در خود دارد و هیچ وقت برابر حروف دوتایی نمی‌شود.

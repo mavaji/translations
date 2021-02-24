@@ -1,0 +1,31 @@
+\section[فایل شبح]{فایل شبح \protect\LTRfootnote{\lr{Phantom File}} (راهنمایی \ref{hint:98}، جواب \ref{answer:35})}
+\paragraph{}\label{prog:99}
+هیچ فایلی به اسم \lr{\texttt{delete.me}} در دایرکتوری ما وجود ندارد. پس چرا این برنامه به ما می‌گوید که آن را پاک کنیم؟
+
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+             /*************************************************
+             * delete_check -- Check to see if the file *
+             * delete.me exists and tell the user *
+             * to delete it if it does. *
+             *************************************************/
+             #include <iostream>
+             #include <unistd.h>
+             #include <cstdio>
+
+             int main()
+             {
+             	// Test for the existence of the file
+             	if (access("delete.me", F_OK)) {
+             		bool remove = true;
+             	}
+             	if (remove) {
+             		std::cout <<
+             			"Please remove 'delete.me'\n";
+             	}
+             	return (0);
+             }
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}

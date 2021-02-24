@@ -1,0 +1,55 @@
+\section[پروژهٔ سازندگی]{پروژهٔ سازندگی \protect\LTRfootnote{\lr{Construction Project}} (راهنمایی \ref{hint:291}، جواب \ref{answer:109})}
+\paragraph{}\label{prog:84}
+دانش‌آموز می‌خواست ببیند که چه وقتی سازنده کپی\LTRfootnote{\lr{Copy Constructor}} و عملگر \lr{\texttt{=}} فراخوانده می‌شوند، لذا برنامهٔ زیر را نوشت. ولی از دیدن نتایج شگفت‌زده شد. چه شده است؟
+
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+             #include <iostream>
+             /************************************************
+             * trouble -- A class designed to store a *
+             * single data item. *
+             * *
+             * Member function: *
+             * put -- put something in the class *
+             * get -- get an item from the class *
+             ************************************************/
+             class trouble {
+             	private:
+             		int data; // An item to be stored
+             	public:
+             		trouble(void) { data = 0; }
+
+             		trouble(const trouble &i_trouble) {
+             			std::cout << "Copy Constructor called\n";
+             			*this = i_trouble;
+             		}
+             		trouble operator = (const trouble &i_trouble) {
+             			std::cout << "= operator called\n";
+             			data = i_trouble.data;
+             			return (*this);
+             		}
+             	public:
+             		// Put an item in the class
+             		void put(const int value) {
+             			data = value;
+             		}
+             		// Get an item from the class
+             		int get(void) {
+             			return (data);
+             		}
+             };
+
+             int main() {
+             	trouble first; // A place to put an item
+             	first.put(99);
+
+             	trouble second(first); // A copy of this space
+
+             	std::cout << "Second.get " << second.get() << '\n';
+
+             	return (0);
+             }
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}

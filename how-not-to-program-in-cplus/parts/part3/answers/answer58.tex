@@ -1,0 +1,5 @@
+\section{}
+\paragraph{}\label{answer:58}
+بنا به استاندارد \lr{\texttt{C++}}، وقتی که یک تابع عضو در کلاس مشتق، همنام با تابع کلاس پایه تعریف می‌کنید، تمام توابع عضو با آن نام، پنهان می‌شوند. بنابراین \lr{\texttt{der::print\_it(float)}} هم \lr{\texttt{base::print\_it(flaot)}} و هم \lr{\texttt{base::print\_it(int)}} را پنهان می‌سازد.
+
+وقتی که \lr{\texttt{print\_it(2)}} را فراخوانی می‌کنید، \lr{\texttt{C++}} دنبال نسخه‌ای از \lr{\texttt{print\_it}} می‌گردد که بتواند از آن استفاده کند. تنها \lr{\texttt{print\_it}} قابل‌مشاهده، \lr{\texttt{der::print\_it(float)}} است. \lr{\texttt{C++}} اکنون تابعی دارد که یک \lr{\texttt{int}} به عنوان آرگومانِ خود می‌گیرد، ولی می‌داند که چگونه یک \lr{\texttt{int}} را به یک \lr{\texttt{float}} تبدیل کند، لذا \lr{\texttt{2}} را به \lr{\texttt{2.0}} تبدیل کرده و از \lr{\texttt{der::print\_it(float)}} استفاده می‌کند.

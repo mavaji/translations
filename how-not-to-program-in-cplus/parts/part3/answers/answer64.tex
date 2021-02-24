@@ -1,0 +1,36 @@
+\section{}
+\paragraph{}\label{answer:64}
+خروجی این است:
+\LTR\noindent
+\lr{\texttt{Name (a): /var/tmp/tmp.2\\
+Name (b): /var/tmp/tmp.2}}
+\RTL
+دلیل این امر این است که با وجود این که ما دو اشاره‌گر داریم، هر دو به یک متغیر به اسم \lr{\texttt{name}} اشاره می‌کنند. وقتی \lr{\texttt{tmp\_name}} برای اولین بار فراخوانی می‌شود:
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+            a_name --> name = "/var/tmp/tmp.1"
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+بعد از دومین فراخوانی:
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+            b_name --> name = "/var/tmp/tmp.2"
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+ولی \lr{\texttt{a\_name}} نیز به \lr{\texttt{name}} اشاره می‌کند لذا:
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+            a_name --> name = "/var/tmp/tmp.2"
+            b_name --> name = "/var/tmp/tmp.2"
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+دومین فراخوانی روی مکانی از حافظه که قرار بود نتیجهٔ اولین فراخوانی را در خود داشته باشد، می‌نویسد. یک راه‌حل این است که یک رشته را بعد از هر فراخوانی کپی کنیم یا فراخواننده را مجبور کنیم که آرایهٔ کاراکتریِ خود را برای ذخیرهٔ \lr{\texttt{name}} داشته باشد. راه‌حل دیگر این است که از رشته‌های متداول \lr{\texttt{C++}} استفاده کنیم که خودشان تخصیص حافظه را تحت کنترل داشته باشند.

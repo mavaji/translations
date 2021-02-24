@@ -1,0 +1,40 @@
+\section{}
+\paragraph{}\label{answer:102}
+من انتظار دارم که نتایج بدین صورت باشد:
+\LTR\noindent
+\lr{\texttt{First 1\\
+First 1\\
+First 1\\
+Second 1\\
+Second 2\\
+Second 3
+}}
+\RTL
+ولی نتایج اینگونه‌اند:
+\LTR\noindent
+\lr{\texttt{First 0\\
+First 0\\
+First 0\\
+Second 0\\
+Second 1\\
+Second 2
+}}
+\RTL
+مشکل در عبارت \lr{\texttt{return (i++);}} است. حالا من فهمیدم که این، یکی به \lr{\texttt{i}} اضافه کرده و برگردانده است. مسأله این است که \lr{\texttt{i++}} مقدار \lr{\texttt{i}} قبل از افزایش است. بنابراین کاری که این عبارت می‌کند این است:
+\begin{enumerate}
+    \item مقدار \lr{\texttt{i}} را ذخیره کن.
+    \item یکی به \lr{\texttt{i}} اضافه کن.
+    \item مقدار ذخیره‌شده را برگردان.
+\end{enumerate}
+\RTL
+لذا خطوط:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        i = 1;
+        return (i++);
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+\RTL
+باعث می‌شوند که یک 1 برگردانده شود، نه یک 2 آن گونه که انتظار می‌رفت.

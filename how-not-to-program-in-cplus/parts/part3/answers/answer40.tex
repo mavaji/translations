@@ -1,0 +1,16 @@
+\section{}
+\paragraph{}\label{answer:40}
+مشکل این است که \lr{\texttt{ostream}} به صورت «ارسال با مقدار» ارسال شده است. شما نمی‌توانید متغیرهای \lr{\texttt{stream}} را کپی کنید. پارامتر باید به صورت «ارسال با ارجاع» تغییر کند:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        void print_msg_one(
+            // File to write the message to
+            class ostream &out_file,
+            // Where to send it
+            const char msg[]
+        )
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+

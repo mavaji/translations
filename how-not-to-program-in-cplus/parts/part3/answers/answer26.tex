@@ -1,0 +1,29 @@
+\section{}
+\paragraph{}\label{answer:26}
+مشکل این است:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        diff[diff_index++] = array[i++] - array[i++];
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+این به کامپایلر می‌گوید که:
+\begin{enumerate}
+    \item به مقدار \lr{\texttt{i}}، یکی اضافه کن.
+    \item از آن برای اندیس آرایه استفاده کن (اولین بار).
+    \item به مقدار \lr{\texttt{i}}، یکی اضافه کن.
+    \item از آن برای اندیس آرایه استفاده کن (دومین بار).
+    \item تفاوت را محاسبه کن.
+\end{enumerate}
+
+مسأله این است که مراحل 1-4 می‌توانند به ترتیب دیگری اتفاق بیفتند:
+\begin{enumerate}
+    \item به مقدار \lr{\texttt{i}}، یکی اضافه کن.
+    \item به مقدار \lr{\texttt{i}}، یکی اضافه کن.
+    \item از آن برای اندیس آرایه استفاده کن (اولین بار).
+    \item از آن برای اندیس آرایه استفاده کن (دومین بار).
+\end{enumerate}
+
+عبارت‌هایی که اثرات جانبی زیادی دارند این وسعتِ عمل را به کامپایلر \lr{\texttt{C++}} می‌دهند که همه چیز را خراب کند.

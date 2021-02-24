@@ -1,0 +1,32 @@
+\section{}
+\paragraph{}\label{answer:75}
+مسأله این جاست که در برنامهٔ خود، این عبارت را داریم:
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+            an_array = an_array;
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+این بدین صورت تغییر قیافه می‌دهد:
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+            82 to_array = from_array;
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+تابع \lr{\texttt{operator=}} داده‌های آرایه مقصد را پاک می‌کند. همه چیز خوب است به غیر از این که آرایهٔ مبدأ نیز در همان پشته قرار دارد و داده‌های آن از بین می‌رود. راه‌حل این است که در تابع \lr{\texttt{operator=}}، خود-انتصابی\LTRfootnote{\lr{Self-Assignment}} را صریحاً بررسی کنیم:
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+            array & operator = (const arrary &old_array) {
+                if (this == &old_array)
+                    return;
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+تابع \lr{\texttt{operator=}} باید خودانتصابی را بررسی کند.

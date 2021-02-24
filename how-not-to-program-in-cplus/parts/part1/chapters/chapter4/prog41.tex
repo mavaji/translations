@@ -1,0 +1,47 @@
+\section[کمی دردسر]{کمی دردسر \protect\LTRfootnote{\lr{A Bit of Trouble}} (راهنمایی \ref{hint:332}، جواب \ref{answer:2})}
+\paragraph{}\label{prog:41}
+\lr{\texttt{bit\_out}} یک مقدار 16 بیتی را می‌گیرد و مقدار هر بیت را چاپ می‌کند. این، یک ارائهٔ گرافیکی از مقدار درست می‌کند ولی خروجی کمی عجیب و غریب است. مشکل کجاست؟
+
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+         /************************************************
+         * bit test -- Test the routine to print out *
+         * the bits in a flag. *
+         ************************************************/
+         #include <iostream>
+         /************************************************
+         * bit_out -- print a graphical *
+         * representation of each bit in a *
+         * 16 bit word. *
+         * *
+         * For example: *
+         * 0×55AF will print -X-X-X-XX-X-XXXX *
+         ************************************************/
+         void bit_out(
+         	const short int value // Value to print
+         )
+         {
+         	// The bit we are printing now
+         	short int bit = (1<<16);
+
+         	int count; // Loop counter
+
+         	for (count = 0; count < 16; ++count)
+         	{
+         		if ((bit & value) != 0)
+         			std::cout << "X";
+         		else
+         			std::cout << '-';
+         		bit >>= 1;
+         	}
+         	std::cout << std::endl;
+         }
+         int main()
+         {
+         	bit_out(0×55AF);
+         	return (0);
+         }
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}

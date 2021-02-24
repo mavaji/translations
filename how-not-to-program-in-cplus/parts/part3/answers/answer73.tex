@@ -1,0 +1,39 @@
+\section{}
+\paragraph{}\label{answer:73}
+مسأله این است که کامپایلر چگونه کد ماشین را برای برنامه تولید می‌کند. عبارت:
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+            if (number1 + number2 == number1)
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+چیزی مثل این را تولید می‌کند:
+\begin{LTR}\noindent
+    \lr{\texttt{movefp\_0, number1\\
+    add fp\_0, number2\\
+    movefp\_1, number1\\
+    fcmpfp\_0, fp\_1\\
+    jump\_zero out\_of\_the\_while}}
+\end{LTR}
+
+در این مثال، \lr{\texttt{fp\_0}} و \lr{\texttt{fp\_1}} رجیسترهای ممیز شناور هستند. در کمک‌پردازنده‌های ممیز شناور، رجیسترها، بزرگترین دقت موجود را دارند. لذا در این حالت، درحالی که که اعداد ممکن است فقط 32 بیتی باشند، پردازنده ممیز شناور، کارها را با 80 بیت انجام می‌دهد که منجر به دقت بالایی می‌شود.
+
+این نوع مشکلات در اغلب ماشین‌هایی که پردازنده ممیز شناور دارند رخ می‌دهد. از طرف دیگر، اگر یک ماشین قدیمی دارید که از نرم‌افزار برای انجام عملیات ممیز شناور استفاده می‌کنند، احتمالاً جواب درستی دریافت می‌کنید. این بدان خاطر است که کلاً، ممیز شناور نرم‌افزاری فقط از بیت‌های لازم برای انجام کار استفاده می‌کند.
+
+برای درست کردن برنامه، باید حلقهٔ اصلی را تبدیل کنیم به:
+\begin{LTR}
+%@formatter:off
+        \begin{lstlisting}[style=C++Style]
+            while (1)
+            {
+                // Volatile keeps the optimizer from
+                // putting the result in a register
+                volatile float result;
+                result = number1 + number2;
+                if (result == number1)
+                    break;
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}

@@ -1,0 +1,18 @@
+\section{}
+\paragraph{}\label{answer:85}
+عبارت
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+            11 printf("The answer is %d\n");
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+به \lr{\texttt{C}} می‌گوید که یک عدد صحیح را چاپ کند، ولی آن عدد صحیح را فراهم نمی‌آورد. تابع \lr{\texttt{printf}} این را نمی‌داند، لذا اولین عدد را از پُشته بیرون می‌آورد (یک عدد تصادفی) و آن را چاپ می‌کند. چیزی که برنامه‌نویس می‌بایستی بنویسد این است:
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+            printf("The answer is %d\n", answer);
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}

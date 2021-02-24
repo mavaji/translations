@@ -1,0 +1,34 @@
+\section{}
+\paragraph{}\label{answer:97}
+مشکل در عبارت زیر است:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        for (index = 0; string[index] != '\0'; ++index)
+            /* do nothing */
+        return (index);
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+بعد از \lr{\texttt{/* do nothing */}} هیچ نقطه‌ویرگولی وجود ندارد. \lr{\texttt{return}} جزئی از حلقهٔ \lr{\texttt{for}} است. اگر توگذاری را به طور مناسب انجام دهیم، این کد به این صورت در می‌آید:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        for (index = 0; string[index] != '\0'; ++index)
+            /* do nothing */
+            return (index);
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+از روی این کد می‌توانیم ببینیم که در اولین بار، اندیس حلقهٔ \lr{\texttt{for}} برابر صفر است و \lr{\texttt{return}} انجام می‌شود. به همین دلیل است که همهٔ رشته‌ها، دارای طول صفر می‌باشند. چیزی که برنامه‌نویس می‌خواست این بود:
+\begin{LTR}
+    %@formatter:off
+    \begin{lstlisting}[style=C++Style]
+        for (index = 0; string[index] != '\0'; ++index)
+            /* do nothing */;
+        return (index);
+    \end{lstlisting}
+    %@formatter:on
+\end{LTR}

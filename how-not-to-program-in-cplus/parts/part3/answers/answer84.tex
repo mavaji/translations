@@ -1,0 +1,51 @@
+\section{}
+\paragraph{}\label{answer:84}
+ مشکل، بهینه‌ساز است. بهینه‌ساز می‌داند که متغیر \lr{\texttt{debugging}} برابر صفر است. همیشه صفر است. حالا که این را می‌دانیم، بگذارید نگاهی به عبارت \lr{\texttt{if (debugging)}} بیندازیم. این همیشه غلط است، چون \lr{\texttt{debugging}} همیشه صفر است. بنابراین این بلوک هیچ‌گاه اجرا نمی‌شود. یعنی می‌توانیم کد زیر را:
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+            13 if (debugging)
+            14 {
+            15 	    dump_variables();
+            16 }
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+ به این صورت بهینه‌سازی کنیم:
+ \begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+            // Nothing
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+حال بگذارید ببینیم تعداد دفعاتی که \lr{\texttt{debugging}} مورد استفاده قرار می‌گیرد، چقدر است. در خط 11 مقداردهی اولیه می‌شود و در خط 13 استفاده می‌شود. خط 13 مورد بهینه‌سازی قرار گرفته است لذا \lr{\texttt{debugging}} هیچ‌گاه استفاه نمی‌شود. اگر از متغیری هیچ‌گاه استفاده نشود، می‌توان آن را با بهینه‌سازی حذف کرد. نتیجه، برنامهٔ بهینه‌سازی‌شدهٔ زیر است:
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+            9   void do_work()
+            10 {
+            11 	// Declaration optimized out
+            12
+            13 	// Block optimized out
+            14 	//
+            15 	//
+            16 	// End of block that was removed
+            17 	// Do real work
+            18 }
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+حالا برنامه‌نویس ما می‌خواهد از متغیر \lr{\texttt{debugging}} برای کمک کردن در امر دیباگ استفاده کند. مشکل این جاست که بعد از بهینه‌سازی، متغیر \lr{\texttt{debugging}}ای وجود ندارد. مشکل این جاست که \lr{\texttt{C++}} نمی‌دانست که برنامه‌نویس می‌خواست از جادو (یک دیباگِر) برای تغییر متغیرها استفاده کند. اگر می‌خواهید کاری این‌چنین انجام دهید، باید به کامپایلر بگویید. این کار با اعلان متغیر \lr{\texttt{debugging}} به صورت \lr{\texttt{volatile}} انجام‌پذیر است.
+\begin{LTR}
+    %@formatter:off
+        \begin{lstlisting}[style=C++Style]
+            static volatile int debugging = 0;
+        \end{lstlisting}
+    %@formatter:on
+\end{LTR}
+
+کلمه کلیدی \lr{\texttt{"volatile"}} به \lr{\texttt{C++}} می‌گوید که «چیزی عجیب و غریب مثل یک روتین وقفه، یک دستور دیباگر، یا چیز دیگری ممکن است این متغیر را تغییر دهد. نمی‌توانی هیچ فرضی در مورد مقدار آن داشته باشی».
