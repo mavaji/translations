@@ -1,5 +1,7 @@
 main:
-- title: "Tags"
-  url: /tags/
-- title: "Categories"
-  url: /categories/
+  - title: "تعلیم خط"
+    url: /calligraphy/
+  - title: "Publications"
+    url: /publications/
+  - title: "Tags"
+    url: /tags/
