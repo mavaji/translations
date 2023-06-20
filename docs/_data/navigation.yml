@@ -1,7 +1,7 @@
 main:
   - title: "تعلیم خط"
-    url: /calligraphy/
+    url: https://mavaji.github.io/calligraphy/
   - title: "Publications"
-    url: /publications/
+    url: https://mavaji.github.io/publications/
   - title: "Tags"
     url: /tags/
